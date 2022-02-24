@@ -1,0 +1,9 @@
+header {
+    box-shadow: var(--header-shadow);
+  }
+  
+  header .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
