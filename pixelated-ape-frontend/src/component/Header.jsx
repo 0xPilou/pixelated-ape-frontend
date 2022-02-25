@@ -9,13 +9,11 @@ import '../Blockchain.js'
 export class Header extends Component {
     render() {
         return <header>
-            <div class="container">
-                <div class="logo">
+            <div className="container">
+                <div className="menu">
                     <a href="/">
                         <img src={logo} alt="logo" />
                     </a>
-                </div>
-                <div class="menu">
                     <a href="https://www.instagram.com/apepixelgang/" target="_blank" rel="noopener noreferrer">
                         <img src={discord} alt="Discord" />
                     </a>
@@ -28,12 +26,14 @@ export class Header extends Component {
                     <a href="https://opensea.io/collection/ApePixelGang" target="_blank" rel="noopener noreferrer">
                         <img src={opensea} alt="Opensea" />
                     </a>
-                    <button class="wallet-btn btn" id="connectWallet">
+                </div>
+                <div className="menu">
+
+                    <button className="wallet-btn btn" id="connectWallet">
                         <span>Connect Wallet</span>
                     </button>
                 </div>
             </div>
-            <script src="../Blockchain.js"></script>
 
         </header>
 
