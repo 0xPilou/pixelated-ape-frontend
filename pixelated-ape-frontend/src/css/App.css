@@ -57,6 +57,8 @@ header .container {
   align-items: center;
 }
 
+/* BACKGROUND VIDEO */
+
 .video {
   position: fixed;
   z-index: -1;
@@ -82,6 +84,24 @@ header .container {
   text-decoration: none;
   outline: none;
 }
+
+.num {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--btn-bg-color);
+  color: var(--accent-color);
+  font-family: var(--font-secondary);
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+}
+
 .btn:hover {
   box-shadow: none;
 }
@@ -92,6 +112,15 @@ header .container {
   border-color: transparent;
 }
 
+.mint-input {
+  margin-top: 30px;
+  border-radius: 5rem;
+  margin-left: 2rem;
+  border-color: transparent;
+  width: 150px;
+  opacity: 1;
+}
+
 .mint-btn {
   margin-top: 30px;
   border-radius: 5rem;
@@ -99,14 +128,8 @@ header .container {
   border-color: transparent;
 }
 
-.hero-btn {
-  border-radius: 4px;
-  font-size: 1.2rem;
-  padding: 1.5rem 3rem;
-}
-
 .minting {
-  padding: 64px;
+  padding: 32px;
 }
 
 .minting-wd-title {
@@ -125,16 +148,6 @@ header .container {
   line-height: 30px
 
 
-}
-/* COUNTDOWN SECTION */
-
-
-
-/* OWNER STYLES */
-
-.owner-status {
-  font-size: 2rem;
-  text-align: center;
 }
 
 /* MEDIA QUERIES */
