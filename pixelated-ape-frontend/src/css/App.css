@@ -134,9 +134,9 @@ header .container {
 
 .minting-wd-title {
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   line-height: 50px
 }
 
@@ -144,7 +144,7 @@ header .container {
   text-align: center;
   font-size: 15px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   line-height: 30px
 
 
@@ -160,12 +160,6 @@ header .container {
     margin-left: 0;
     padding: 1rem;
     max-width: 8rem;
-  }
-  .countdown h1 {
-    font-size: 2rem;
-  }
-  .countdown p {
-    font-size: 1rem;
   }
 }
  
