@@ -1,16 +1,65 @@
 
-import React, { useState } from 'react';
-import { Header } from './component/Header'
-import backgroundVideo from './images/background.mp4';
-import gif from './images/gif/preview450.gif';
+import React, { useEffect, useState } from 'react';
+import { ContractFactory, ethers } from 'ethers'
 import { Grid } from '@material-ui/core';
-
+import { Header } from './component/Header'
 
 import './css/App.css';
 
+import backgroundVideo from './images/background.mp4';
+import gif from './images/gif/preview450.gif';
+
+import APG_ABI from './contract/ApePixelGang.json'
+const APG_ADDRESS = '0x02b0B4EFd909240FCB2Eb5FAe060dC60D112E3a4';
+
 
 function App() {
+
   const [number, setNumber] = useState(3);
+  const [error, setError] = useState('');
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+  async function fetchData() {
+    if (typeof window.ethereum !== 'undefined') {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, provider);
+      try {
+        const cost = await contract.price();
+        const totalSupply = await contract.totalSupply();
+        const object = { "cost": cost, "totalSupply": String(totalSupply) }
+        setData(object);
+      }
+      catch (err) {
+        setError(err.message);
+      }
+    }
+  }
+
+  async function mint() {
+    if (typeof window.ethereum !== 'undefined') {
+      let accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      try {
+        let overrides = {
+          from: accounts[0],
+          value: data.cost.mul(number)
+        }
+        const tx = await contract.mint(number, overrides);
+        await tx.wait();
+        fetchData();
+      }
+      catch (err) {
+        setError(err.message);
+        console.log(err.message)
+
+      }
+    }
+  }
 
   const increaseNumber = () => {
     if (number < 10) {
@@ -44,7 +93,7 @@ function App() {
               justifyContent="center"
               alignItems="center"
             >
-              <p className='minting-wd-title'>Mint a Pixelated Ape</p>
+              <p className='minting-wd-title'>Mint a Pixelated Ape </p>
               <p className='minting-wd-subtitle'>
                 Ape Pixel Gang is a Bored Ape Yacht Club Derivative Collection.
               </p>
@@ -52,7 +101,8 @@ function App() {
                 Each one of the 10k BAYC has been carefully pixelated with a random pixel size.
               </p>
               <p className='minting-wd-subtitle'>Mint up to 10 APG and become a community member</p>
-              <p className='minting-wd-title'>2000 / 10000</p>
+              <p className='minting-wd-title'>{data.totalSupply} / 10000</p>
+              <p className='minting-wd-subtitle'>Each Pixelated Ape costs {data.cost / 10 ** 18} ETH</p>
 
               <Grid container spacing={2} justifyContent="center" alignItems="center">
                 <button className="mint-btn btn" id="mintButton" onClick={decreaseNumber}>
@@ -64,11 +114,10 @@ function App() {
                 <button className="mint-btn btn" id="mintButton" onClick={increaseNumber}>
                   <span>+</span>
                 </button>
+                <button className="mint-btn btn" id="mintButton" onClick={mint}>
+                  <span>Mint</span>
+                </button>
               </Grid>
-
-              <button className="mint-btn btn" id="mintButton">
-                <span>Mint</span>
-              </button>
             </Grid>
 
           </Grid>
