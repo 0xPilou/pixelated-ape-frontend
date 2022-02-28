@@ -129,14 +129,14 @@ header .container {
 }
 
 .minting {
-  padding: 32px;
+  padding: 20px;
 }
 
 .minting-wd-title {
   text-align: center;
   font-size: 30px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   line-height: 50px
 }
 
