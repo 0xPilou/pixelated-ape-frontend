@@ -121,6 +121,10 @@ header .container {
   opacity: 1;
 }
 
+.warning {
+  margin-top: 30px;
+}
+
 .mint-btn {
   margin-top: 30px;
   border-radius: 5rem;
