@@ -4,7 +4,6 @@ import discord from '../images/header/discord.png';
 import instagram from '../images/header/instagram.png';
 import twitter from '../images/header/twitter.png';
 import opensea from '../images/header/opensea.png';
-import '../Blockchain.js'
 
 export class Header extends Component {
     render() {
