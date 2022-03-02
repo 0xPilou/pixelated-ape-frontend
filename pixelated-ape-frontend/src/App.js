@@ -1,8 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
-import { ContractFactory, ethers } from 'ethers'
+import { ethers } from 'ethers'
 import { Grid } from '@material-ui/core';
 import { Header } from './component/Header'
+import MetaMaskOnboarding from '@metamask/onboarding'
+
 
 import './css/App.css';
 
@@ -15,6 +17,7 @@ const APG_ADDRESS = '0x02b0B4EFd909240FCB2Eb5FAe060dC60D112E3a4';
 
 function App() {
 
+  const [connected, setConnected] = useState(false);
   const [number, setNumber] = useState(3);
   const [error, setError] = useState('');
   const [data, setData] = useState({});
@@ -22,6 +25,7 @@ function App() {
   useEffect(() => {
     fetchData();
   }, [])
+
   async function fetchData() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -40,7 +44,7 @@ function App() {
 
   async function mint() {
     if (typeof window.ethereum !== 'undefined') {
-      let accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+      let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
@@ -60,6 +64,48 @@ function App() {
       }
     }
   }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const onboarding = new MetaMaskOnboarding();
+    const onboardButton = document.getElementById('connectWallet');
+    let accounts;
+
+    const updateButton = async () => {
+      if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
+        onboardButton.innerText = 'Install MetaMask!';
+        onboardButton.onclick = () => {
+          onboardButton.innerText = 'Connecting...';
+          onboardButton.disabled = true;
+          onboarding.startOnboarding();
+        };
+      } else if (accounts && accounts.length > 0) {
+        onboardButton.innerText = `✔ ${accounts[0].substring(0, 6)}...${accounts[0].slice(-4)}`;
+        onboardButton.disabled = true;
+        onboarding.stopOnboarding();
+        setConnected(true);
+      } else {
+        onboardButton.innerText = 'Connect MetaMask!';
+        onboardButton.onclick = async () => {
+          await window.ethereum.request({
+            method: 'eth_requestAccounts',
+          })
+            .then(function (accounts) {
+              onboardButton.innerText = `✔ ${accounts[0].substring(0, 6)}...${accounts[0].slice(-4)}`;
+              onboardButton.disabled = true;
+              setConnected(true);
+            });
+        };
+      }
+    };
+    updateButton();
+
+    if (MetaMaskOnboarding.isMetaMaskInstalled()) {
+      window.ethereum.on('accountsChanged', (newAccounts) => {
+        accounts = newAccounts;
+        updateButton();
+      });
+    }
+  });
 
   const increaseNumber = () => {
     if (number < 10) {
@@ -105,18 +151,28 @@ function App() {
               <p className='minting-wd-subtitle'>Each Pixelated Ape costs {data.cost / 10 ** 18} ETH</p>
 
               <Grid container spacing={2} justifyContent="center" alignItems="center">
-                <button className="mint-btn btn" id="mintButton" onClick={decreaseNumber}>
-                  <span>-</span>
-                </button>
-                <button className="mint-btn num" id="mintButton">
-                  <span>{number}</span>
-                </button>
-                <button className="mint-btn btn" id="mintButton" onClick={increaseNumber}>
-                  <span>+</span>
-                </button>
-                <button className="mint-btn btn" id="mintButton" onClick={mint}>
-                  <span>Mint</span>
-                </button>
+                {connected === false && (
+                  <h2 className="warning">Connect Wallet to Start Minting </h2>
+                )}
+                {connected === true && (
+                  <Grid container spacing={2} justifyContent="center" alignItems="center">
+
+                    <button className="mint-btn btn" id="mintButton" onClick={decreaseNumber}>
+                      <span>-</span>
+                    </button>
+                    <button className="mint-btn num" id="mintButton">
+                      <span>{number}</span>
+                    </button>
+                    <button className="mint-btn btn" id="mintButton" onClick={increaseNumber}>
+                      <span>+</span>
+                    </button>
+                    <button className="mint-btn btn" id="mintButton" onClick={mint}>
+                      <span>Mint</span>
+                    </button>
+                  </Grid>
+                )}
+
+
               </Grid>
             </Grid>
 
