@@ -4,37 +4,76 @@ import discord from '../images/header/discord.png';
 import instagram from '../images/header/instagram.png';
 import twitter from '../images/header/twitter.png';
 import opensea from '../images/header/opensea.png';
+import MetaMaskOnboarding from '@metamask/onboarding'
 
-export class Header extends Component {
-    render() {
-        return <header>
-            <div className="container">
-                <div className="menu">
-                    <a href="/">
-                        <img src={logo} alt="logo" />
-                    </a>
-                    <a href="https://discord.gg/hq5ccHHa" target="_blank" rel="noopener noreferrer">
-                        <img src={discord} alt="Discord" />
-                    </a>
-                    <a href="https://www.instagram.com/apepixelgang/" target="_blank" rel="noopener noreferrer">
-                        <img src={instagram} alt="Instagram" />
-                    </a>
-                    <a href="https://twitter.com/ApePixelGang" target="_blank" rel="noopener noreferrer">
-                        <img src={twitter} alt="Twitter" />
-                    </a>
-                    <a href="https://opensea.io/collection/ApePixelGang" target="_blank" rel="noopener noreferrer">
-                        <img src={opensea} alt="Opensea" />
-                    </a>
-                </div>
-                <div className="menu">
+export function Header({ updateConnection }) {
+    window.addEventListener('DOMContentLoaded', () => {
+        const onboarding = new MetaMaskOnboarding();
+        const onboardButton = document.getElementById('connectWallet');
+        let accounts;
 
-                    <button className="wallet-btn btn" id="connectWallet">
-                        <span>Connect Wallet</span>
-                    </button>
-                </div>
+        const updateButton = async () => {
+            if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
+                onboardButton.innerText = 'Install MetaMask!';
+                onboardButton.onclick = () => {
+                    onboardButton.innerText = 'Connecting...';
+                    onboardButton.disabled = true;
+                    onboarding.startOnboarding();
+                };
+            } else if (accounts && accounts.length > 0) {
+                onboardButton.innerText = `✔ ${accounts[0].substring(0, 6)}...${accounts[0].slice(-4)}`;
+                onboardButton.disabled = true;
+                onboarding.stopOnboarding();
+                updateConnection(true);
+            } else {
+                onboardButton.innerText = 'Connect MetaMask!';
+                onboardButton.onclick = async () => {
+                    await window.ethereum.request({
+                        method: 'eth_requestAccounts',
+                    })
+                        .then(function (accounts) {
+                            onboardButton.innerText = `✔ ${accounts[0].substring(0, 6)}...${accounts[0].slice(-4)}`;
+                            onboardButton.disabled = true;
+                            updateConnection(true);
+                        });
+                };
+            }
+        };
+        updateButton();
+
+        if (MetaMaskOnboarding.isMetaMaskInstalled()) {
+            window.ethereum.on('accountsChanged', (newAccounts) => {
+                accounts = newAccounts;
+                updateButton();
+            });
+        }
+    });
+    return <header>
+        <div className="container">
+            <div className="menu">
+                <a href="/">
+                    <img src={logo} alt="logo" />
+                </a>
+                <a href="https://discord.gg/hq5ccHHa" target="_blank" rel="noopener noreferrer">
+                    <img src={discord} alt="Discord" />
+                </a>
+                <a href="https://www.instagram.com/apepixelgang/" target="_blank" rel="noopener noreferrer">
+                    <img src={instagram} alt="Instagram" />
+                </a>
+                <a href="https://twitter.com/ApePixelGang" target="_blank" rel="noopener noreferrer">
+                    <img src={twitter} alt="Twitter" />
+                </a>
+                <a href="https://opensea.io/collection/ApePixelGang" target="_blank" rel="noopener noreferrer">
+                    <img src={opensea} alt="Opensea" />
+                </a>
             </div>
+            <div className="menu">
 
-        </header>
+                <button className="wallet-btn btn" id="connectWallet">
+                    <span>Connect Wallet</span>
+                </button>
+            </div>
+        </div>
 
-    }
+    </header>
 }

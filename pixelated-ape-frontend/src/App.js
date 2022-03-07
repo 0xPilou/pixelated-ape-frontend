@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { ethers } from 'ethers'
 import { Header } from './component/Header'
 import { Minter } from './component/Minter'
-import MetaMaskOnboarding from '@metamask/onboarding'
 
 
 import './css/App.css';
@@ -24,7 +23,6 @@ function App() {
   useEffect(() => {
     fetchData();
   }, [])
-
   async function fetchData() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -40,7 +38,6 @@ function App() {
       }
     }
   }
-
   async function mint() {
     if (typeof window.ethereum !== 'undefined') {
       let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -63,59 +60,18 @@ function App() {
       }
     }
   }
-
-  window.addEventListener('DOMContentLoaded', () => {
-    const onboarding = new MetaMaskOnboarding();
-    const onboardButton = document.getElementById('connectWallet');
-    let accounts;
-
-    const updateButton = async () => {
-      if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
-        onboardButton.innerText = 'Install MetaMask!';
-        onboardButton.onclick = () => {
-          onboardButton.innerText = 'Connecting...';
-          onboardButton.disabled = true;
-          onboarding.startOnboarding();
-        };
-      } else if (accounts && accounts.length > 0) {
-        onboardButton.innerText = `✔ ${accounts[0].substring(0, 6)}...${accounts[0].slice(-4)}`;
-        onboardButton.disabled = true;
-        onboarding.stopOnboarding();
-        setConnected(true);
-      } else {
-        onboardButton.innerText = 'Connect MetaMask!';
-        onboardButton.onclick = async () => {
-          await window.ethereum.request({
-            method: 'eth_requestAccounts',
-          })
-            .then(function (accounts) {
-              onboardButton.innerText = `✔ ${accounts[0].substring(0, 6)}...${accounts[0].slice(-4)}`;
-              onboardButton.disabled = true;
-              setConnected(true);
-            });
-        };
-      }
-    };
-    updateButton();
-
-    if (MetaMaskOnboarding.isMetaMaskInstalled()) {
-      window.ethereum.on('accountsChanged', (newAccounts) => {
-        accounts = newAccounts;
-        updateButton();
-      });
-    }
-  });
-
   const increaseNumber = () => {
     if (number < 10) {
       setNumber(number + 1);
     }
   }
-
   const decreaseNumber = () => {
     if (number > 1) {
       setNumber(number - 1);
     }
+  }
+  const updateConnection = (boolean) => {
+    setConnected(boolean);
   }
 
   return (
@@ -123,7 +79,7 @@ function App() {
       {/* <video autoPlay loop muted className='video'>
         <source src={backgroundVideo} type='video/mp4' />
       </video> */}
-      <Header />
+      <Header updateConnection={updateConnection} />
       <Minter data={data} connected={connected} decreaseNumber={decreaseNumber} number={number} increaseNumber={increaseNumber} mint={mint} />
     </div>
   );
