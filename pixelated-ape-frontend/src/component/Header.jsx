@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
+
 import logo from "../images/logo96.png";
 import discord from '../images/header/discord.png';
 import instagram from '../images/header/instagram.png';
@@ -51,9 +53,9 @@ export function Header({ updateConnection }) {
     return <header>
         <div className="container">
             <div className="menu">
-                <a href="/">
+                <Link to="/">
                     <img src={logo} alt="logo" />
-                </a>
+                </Link>
                 <a href="https://discord.gg/hq5ccHHa" target="_blank" rel="noopener noreferrer">
                     <img src={discord} alt="Discord" />
                 </a>
@@ -68,9 +70,16 @@ export function Header({ updateConnection }) {
                 </a>
             </div>
             <div className="menu">
-
+                <Link className="heading-link" to="/">
+                    Home
+                </Link>
+                <Link className="heading-link" to="/mint">
+                    Mint
+                </Link>
+            </div>
+            <div>
                 <button className="wallet-btn btn" id="connectWallet">
-                    <span>Connect Wallet</span>
+                    <span>Connect</span>
                 </button>
             </div>
         </div>
