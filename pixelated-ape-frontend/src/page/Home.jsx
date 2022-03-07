@@ -3,14 +3,14 @@ import { Grid } from '@material-ui/core';
 import backgroundVideo from '../images/background.mp4';
 
 
-export function About() {
+function Home() {
   return <>
     {/* <video autoPlay loop muted className='video'>
       <source src={backgroundVideo} type='video/mp4' />
     </video> */}
     <section className="minting">
       <Grid container direction="column" justifyContent="center" alignItems="center">
-        <p className='minting-wd-title'>Mint a Pixelated Ape </p>
+        <p className='minting-wd-title'>Welcome In Ape Pixel Gang Community</p>
         <p className='minting-wd-subtitle'>
           Ape Pixel Gang is a Bored Ape Yacht Club Derivative Collection.
         </p>
@@ -19,6 +19,9 @@ export function About() {
         </p>
         <p className='minting-wd-subtitle'>Mint up to 10 APG and become a community member</p>
       </Grid>
-    </section >;
+    </section >
   </>
 }
+
+export default Home
+
