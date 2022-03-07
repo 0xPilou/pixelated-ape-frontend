@@ -140,6 +140,11 @@ header .container {
   border-color: transparent;
 }
 
+.home-btn {
+  text-align: center;
+  align-items: center;
+}
+
 .minting {
   padding: 20px;
 }
@@ -158,9 +163,12 @@ header .container {
   font-weight: bold;
   margin-bottom: 15px;
   line-height: 30px
-
-
 }
+
+.error-page {
+  margin-top: 150px
+}
+
 
 /* MEDIA QUERIES */
 

@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { ethers } from 'ethers'
 import { Header } from './component/Header'
-import { Minter } from './page/Minter'
-import { About } from './page/About'
+import Minter from './page/Minter'
+import Home from './page/Home'
+import ErrorPage from './page/ErrorPage'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import './css/App.css';
@@ -82,7 +83,7 @@ function App() {
     <Router>
       <Header updateConnection={updateConnection} />
       <Routes>
-        <Route path="/" element={<About />}/>
+        <Route path="/" element={<Home />}/>
         <Route path="/mint" 
         element={
           <Minter 
@@ -94,6 +95,7 @@ function App() {
             mint={mint} 
           />
         } />
+        <Route path="*" element={<ErrorPage />}/>
       </Routes>
 
     </Router>
