@@ -2,12 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import { ethers } from 'ethers'
 import { Header } from './component/Header'
-import { Minter } from './component/Minter'
-
+import { Minter } from './page/Minter'
+import { About } from './page/About'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import './css/App.css';
-
-import backgroundVideo from './images/background.mp4';
 
 import APG_ABI from './contract/ApePixelGang.json'
 const APG_ADDRESS = '0xa6e99A4ED7498b3cdDCBB61a6A607a4925Faa1B7';
@@ -23,6 +22,7 @@ function App() {
   useEffect(() => {
     fetchData();
   }, [])
+
   async function fetchData() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -38,6 +38,7 @@ function App() {
       }
     }
   }
+
   async function mint() {
     if (typeof window.ethereum !== 'undefined') {
       let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -60,28 +61,42 @@ function App() {
       }
     }
   }
+
   const increaseNumber = () => {
     if (number < 10) {
       setNumber(number + 1);
     }
   }
+
   const decreaseNumber = () => {
     if (number > 1) {
       setNumber(number - 1);
     }
   }
+
   const updateConnection = (boolean) => {
     setConnected(boolean);
   }
 
   return (
-    <div className="App">
-      {/* <video autoPlay loop muted className='video'>
-        <source src={backgroundVideo} type='video/mp4' />
-      </video> */}
+    <Router>
       <Header updateConnection={updateConnection} />
-      <Minter data={data} connected={connected} decreaseNumber={decreaseNumber} number={number} increaseNumber={increaseNumber} mint={mint} />
-    </div>
+      <Routes>
+        <Route path="/" element={<About />}/>
+        <Route path="/mint" 
+        element={
+          <Minter 
+            data={data}
+            connected={connected}
+            decreaseNumber={decreaseNumber}
+            number={number}
+            increaseNumber={increaseNumber}
+            mint={mint} 
+          />
+        } />
+      </Routes>
+
+    </Router>
   );
 }
 
