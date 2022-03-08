@@ -12,7 +12,7 @@ function ErrorPage() {
             </p>
             <div className='home-btn'>
                 <Link to="/">
-                    <button className="mint-btn btn" id="mintButton">
+                    <button className="mint-btn btn">
                         <span>Return Back Home</span>
                     </button>
                 </Link>
