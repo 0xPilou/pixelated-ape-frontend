@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import logo from "../images/logo96.png";
 import discord from '../images/header/discord.png';
@@ -56,7 +56,7 @@ export function Header({ updateConnection }) {
                 <Link to="/">
                     <img src={logo} alt="logo" />
                 </Link>
-                <a href="https://discord.gg/hq5ccHHa" target="_blank" rel="noopener noreferrer">
+                <a href="https://discord.com/invite/YkdNDeGx" target="_blank" rel="noopener noreferrer">
                     <img src={discord} alt="Discord" />
                 </a>
                 <a href="https://www.instagram.com/apepixelgang/" target="_blank" rel="noopener noreferrer">
@@ -70,12 +70,15 @@ export function Header({ updateConnection }) {
                 </a>
             </div>
             <div className="menu">
-                <Link className="heading-link" to="/">
-                    Home
-                </Link>
-                <Link className="heading-link" to="/mint">
-                    Mint
-                </Link>
+                <NavLink exact={true} activeClassName="active" className="heading-link" to="/">
+                    ABOUT
+                </NavLink>
+                <NavLink activeClassName="active" className="heading-link" to="/mint">
+                    MINT
+                </NavLink>
+                <NavLink activeClassName="active" className="heading-link" to="/admin">
+                    ADMIN
+                </NavLink>
             </div>
             <div>
                 <button className="wallet-btn btn" id="connectWallet">
