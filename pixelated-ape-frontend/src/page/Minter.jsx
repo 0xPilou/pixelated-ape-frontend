@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core';
 import backgroundVideo from '../images/background.mp4';
 
 
-export function Minter({ data, connected, decreaseNumber, number, increaseNumber, mint }) {
+function Minter({ data, connected, decreaseNumber, number, increaseNumber, mint }) {
   return <>
     {/* <video autoPlay loop muted className='video'>
       <source src={backgroundVideo} type='video/mp4' />
@@ -53,6 +53,9 @@ export function Minter({ data, connected, decreaseNumber, number, increaseNumber
 
         </Grid>
       </Grid>
-    </section>;
+    </section>
   </>
 }
+
+export default Minter
+
