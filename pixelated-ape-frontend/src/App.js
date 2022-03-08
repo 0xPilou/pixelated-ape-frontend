@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { ethers } from 'ethers'
 import { Header } from './component/Header'
 import Minter from './page/Minter'
-import Home from './page/Home'
+import About from './page/About'
+import Admin from './page/Admin'
 import ErrorPage from './page/ErrorPage'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
@@ -83,7 +84,7 @@ function App() {
     <Router>
       <Header updateConnection={updateConnection} />
       <Routes>
-        <Route path="/" element={<Home />}/>
+        <Route path="/" element={<About />}/>
         <Route path="/mint" 
         element={
           <Minter 
@@ -95,6 +96,8 @@ function App() {
             mint={mint} 
           />
         } />
+        <Route path="/admin" element={<Admin />}/>
+
         <Route path="*" element={<ErrorPage />}/>
       </Routes>
 
