@@ -33,16 +33,16 @@ function Minter({ data, connected, decreaseNumber, number, increaseNumber, mint 
               {connected === false && <p className='warning'>Connect Wallet</p>}
               {connected === true && <Grid container spacing={2} justifyContent="center" alignItems="center">
 
-                <button className="mint-btn btn" id="mintButton" onClick={decreaseNumber}>
+                <button className="mint-btn btn" onClick={decreaseNumber}>
                   <span>-</span>
                 </button>
-                <button className="mint-btn num" id="mintButton">
+                <button className="mint-btn num">
                   <span>{number}</span>
                 </button>
-                <button className="mint-btn btn" id="mintButton" onClick={increaseNumber}>
+                <button className="mint-btn btn" onClick={increaseNumber}>
                   <span>+</span>
                 </button>
-                <button className="mint-btn btn" id="mintButton" onClick={mint}>
+                <button className="mint-btn btn" onClick={mint}>
                   <span>Mint</span>
                 </button>
               </Grid>}
