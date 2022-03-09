@@ -84,6 +84,39 @@ header .container {
   text-transform: uppercase;
 }
 
+.btn:disabled {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--btn-bg-color);
+  color: var(--accent-color);
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  text-transform: capitalize;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 0 0 var(--accent-color);
+  cursor: not-allowed;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.btn-nocap {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--btn-bg-color);
+  color: var(--accent-color);
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0 0 var(--accent-color);
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+}
+
 .num {
   display: inline-block;
   padding: 1rem 2rem;
@@ -203,7 +236,11 @@ header .container {
 }
 
 .admin-grid-item {
-  margin-bottom: 50px;
+  margin-bottom: 80px;
+}
+
+.admin-input-grid {
+  margin-bottom: 60px
 }
 
 .admin-section-name {
@@ -222,10 +259,35 @@ header .container {
   line-height: 32px;
 }
 
+.admin-section-text-nocap {
+  text-align: left;
+  font-size: 15px;
+  margin-bottom: 10px;
+  margin-right: 30px;
+  line-height: 32px;
+}
+
 .admin-btn {
   margin-top: 10px;
   border-color: transparent;
   text-transform: uppercase;
+}
+
+.admin-btn:disabled {
+  margin-top: 10px;
+}
+
+.admin-input-btn {
+  margin-top: 10px;
+  margin-right: 20px;
+  border-color: transparent;
+  text-transform: uppercase;
+}
+
+.admin-input-btn-nocap {
+  margin-top: 10px;
+  margin-right: 20px;
+  border-color: transparent;
 }
 
 /* MINTER PAGE */
