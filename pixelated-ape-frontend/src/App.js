@@ -32,7 +32,19 @@ function App() {
       try {
         const cost = await contract.price();
         const totalSupply = await contract.totalSupply();
-        const object = { "cost": cost, "totalSupply": String(totalSupply) }
+        const maxQuantity = await contract.MAX_QTY();
+        const startBlock = await contract.startBlock();
+        const unrevealedURI = await contract.notRevealedURI();
+
+        const revealStatus = await contract.revealed();
+        const object = {
+          "cost": cost,
+          "totalSupply": String(totalSupply),
+          "maxQuantity": String(maxQuantity),
+          "startBlock": String(startBlock),
+          "unrevealedURI": String(unrevealedURI),
+          "revealStatus": revealStatus
+        }
         setData(object);
       }
       catch (err) {
@@ -64,6 +76,78 @@ function App() {
     }
   }
 
+  async function updateStartBlock(blockId) {
+    if (typeof window.ethereum !== 'undefined') {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      try {
+        const tx = await contract.setStartBlock(blockId);
+        await tx.wait();
+        fetchData();
+      }
+      catch (err) {
+        setError(err.message);
+        console.log(err.message)
+      }
+    }
+  }
+
+  async function updateBaseURI(baseURI) {
+    if (typeof window.ethereum !== 'undefined') {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      try {
+        const tx = await contract.setBaseURI(baseURI);
+        await tx.wait();
+        fetchData();
+      }
+      catch (err) {
+        setError(err.message);
+        console.log(err.message)
+      }
+    }
+  }
+
+  async function updateUnrevealedURI(unrevealedURI) {
+    if (typeof window.ethereum !== 'undefined') {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      try {
+        const tx = await contract.setNotRevealedURI(unrevealedURI);
+        await tx.wait();
+        fetchData();
+      }
+      catch (err) {
+        setError(err.message);
+        console.log(err.message)
+      }
+    }
+  }
+
+  async function updateRevealStatus(unrevealedURI) {
+    if (typeof window.ethereum !== 'undefined') {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      try {
+        const tx = await contract.reveal();
+        await tx.wait();
+        fetchData();
+      }
+      
+      catch (err) {
+        setError(err.message);
+        console.log(err.message)
+      }
+    }
+  }
+
+
+  
+
   const increaseNumber = () => {
     if (number < 10) {
       setNumber(number + 1);
@@ -84,21 +168,28 @@ function App() {
     <Router>
       <Header updateConnection={updateConnection} />
       <Routes>
-        <Route path="/" element={<About />}/>
-        <Route path="/mint" 
-        element={
-          <Minter 
+        <Route path="/" element={<About />} />
+        <Route path="/mint"
+          element={
+            <Minter
+              data={data}
+              connected={connected}
+              decreaseNumber={decreaseNumber}
+              number={number}
+              increaseNumber={increaseNumber}
+              mint={mint}
+            />
+          } />
+        <Route path="/admin" element={
+          <Admin
             data={data}
-            connected={connected}
-            decreaseNumber={decreaseNumber}
-            number={number}
-            increaseNumber={increaseNumber}
-            mint={mint} 
-          />
-        } />
-        <Route path="/admin" element={<Admin />}/>
+            updateStartBlock={updateStartBlock}
+            updateBaseURI={updateBaseURI}
+            updateUnrevealedURI={updateUnrevealedURI}
+            updateRevealStatus={updateRevealStatus}
+          />} />
 
-        <Route path="*" element={<ErrorPage />}/>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
 
     </Router>
