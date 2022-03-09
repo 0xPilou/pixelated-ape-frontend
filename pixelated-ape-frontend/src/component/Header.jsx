@@ -70,13 +70,13 @@ export function Header({ updateConnection }) {
                 </a>
             </div>
             <div className="menu">
-                <NavLink exact={true} activeClassName="active" className="heading-link" to="/">
+                <NavLink activeclassname="active" className="heading-link" to="/">
                     ABOUT
                 </NavLink>
-                <NavLink activeClassName="active" className="heading-link" to="/mint">
+                <NavLink activeclassname="active" className="heading-link" to="/mint">
                     MINT
                 </NavLink>
-                <NavLink activeClassName="active" className="heading-link" to="/admin">
+                <NavLink activeclassname="active" className="heading-link" to="/admin">
                     ADMIN
                 </NavLink>
             </div>
