@@ -15,11 +15,11 @@
         "URL": "https://discord.com/invite/YkdNDeGx"
     },
     "OPENSEA": {
-        "EXISTS": true,
+        "EXISTS": false,
         "URL": "https://opensea.io/collection/ApePixelGang"
     },
     "LOOKSRARE": {
         "EXISTS": false,
-        "URL": ""
+        "URL": "https://looksrare.org/collections/0xa6e99A4ED7498b3cdDCBB61a6A607a4925Faa1B7"
     }
 }
