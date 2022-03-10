@@ -19,12 +19,10 @@ export function Header({ updateConnection }) {
                 onboardButton.innerText = 'Install MetaMask!';
                 onboardButton.onclick = () => {
                     onboardButton.innerText = 'Connecting...';
-                    onboardButton.disabled = true;
                     onboarding.startOnboarding();
                 };
             } else if (accounts && accounts.length > 0) {
                 onboardButton.innerText = `✔ ${accounts[0].substring(0, 6)}...${accounts[0].slice(-4)}`;
-                onboardButton.disabled = true;
                 onboarding.stopOnboarding();
                 updateConnection(true);
             } else {
@@ -35,7 +33,6 @@ export function Header({ updateConnection }) {
                     })
                         .then(function (accounts) {
                             onboardButton.innerText = `✔ ${accounts[0].substring(0, 6)}...${accounts[0].slice(-4)}`;
-                            onboardButton.disabled = true;
                             updateConnection(true);
                         });
                 };
