@@ -26,7 +26,7 @@ function Minter({ data, connected, decreaseNumber, number, increaseNumber, mint 
               Each one of the 10k BAYC has been carefully pixelated with a random pixel size.
             </p>
             <p className='minting-wd-subtitle'>Mint up to 10 APG and become a community member</p>
-            <p className='minting-wd-title'>{data.totalSupply} / 10000</p>
+            <p className='minting-wd-title'>{data.totalSupply} / {data.maxQuantity}</p>
             <p className='minting-wd-subtitle'>Each Pixelated Ape costs {data.cost / 10 ** 18} ETH</p>
 
             <Grid container spacing={2} justifyContent="center" alignItems="center">

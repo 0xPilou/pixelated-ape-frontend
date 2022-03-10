@@ -41,6 +41,7 @@ function App() {
         const unrevealedURI = await contract.notRevealedURI();
         const balance = await provider.getBalance(CONFIG.CONTRACT_ADDRESS)
         const revealStatus = await contract.revealed();
+        
         const object = {
           "cost": cost,
           "totalSupply": String(totalSupply),
