@@ -1,17 +1,21 @@
-
+/* Libs & Modules */
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ethers } from 'ethers'
 import { Header } from './component/Header'
+
+/* Pages & Components */
 import Minter from './page/Minter'
 import About from './page/About'
 import Admin from './page/Admin'
 import ErrorPage from './page/ErrorPage'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
+/* Style */
 import './css/App.css';
 
-import APG_ABI from './contract/ApePixelGang.json'
-const APG_ADDRESS = '0xa6e99A4ED7498b3cdDCBB61a6A607a4925Faa1B7';
+/* Contract & Configuration */
+import CONTRACT from './contract/ApePixelGang.json'
+import CONFIG from './config.json'
 
 
 function App() {
@@ -28,14 +32,14 @@ function App() {
   async function fetchData() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, provider);
+      const contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, CONTRACT.abi, provider);
       try {
         const cost = await contract.price();
         const totalSupply = await contract.totalSupply();
         const maxQuantity = await contract.MAX_QTY();
         const startBlock = await contract.startBlock();
         const unrevealedURI = await contract.notRevealedURI();
-        const balance = await provider.getBalance(APG_ADDRESS)
+        const balance = await provider.getBalance(CONFIG.CONTRACT_ADDRESS)
         const revealStatus = await contract.revealed();
         const object = {
           "cost": cost,
@@ -59,7 +63,7 @@ function App() {
       let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      const contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, CONTRACT.abi, signer);
       try {
         let overrides = {
           from: accounts[0],
@@ -81,7 +85,7 @@ function App() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      const contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, CONTRACT.abi, signer);
       try {
         const tx = await contract.setStartBlock(blockId);
         await tx.wait();
@@ -98,7 +102,7 @@ function App() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      const contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, CONTRACT.abi, signer);
       try {
         const tx = await contract.setBaseURI(baseURI);
         await tx.wait();
@@ -115,7 +119,7 @@ function App() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      const contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, CONTRACT.abi, signer);
       try {
         const tx = await contract.setNotRevealedURI(unrevealedURI);
         await tx.wait();
@@ -128,11 +132,11 @@ function App() {
     }
   }
 
-  async function updateRevealStatus(unrevealedURI) {
+  async function updateRevealStatus() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      const contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, CONTRACT.abi, signer);
       try {
         const tx = await contract.reveal();
         await tx.wait();
@@ -150,7 +154,7 @@ function App() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      const contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, CONTRACT.abi, signer);
       try {
         const tx = await contract.withdrawAll();
         await tx.wait();
@@ -164,11 +168,8 @@ function App() {
     }
   }
 
-
-
-
   const increaseNumber = () => {
-    if (number < 10) {
+    if (number < CONFIG.MAX_MINT) {
       setNumber(number + 1);
     }
   }

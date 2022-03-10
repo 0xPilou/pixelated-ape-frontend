@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link, NavLink } from 'react-router-dom'
 
 import logo from "../images/logo96.png";
@@ -7,6 +7,8 @@ import instagram from '../images/header/instagram.png';
 import twitter from '../images/header/twitter.png';
 import opensea from '../images/header/opensea.png';
 import MetaMaskOnboarding from '@metamask/onboarding'
+
+const CONFIG = require("../config.json");
 
 export function Header({ updateConnection }) {
     window.addEventListener('DOMContentLoaded', () => {
@@ -53,18 +55,32 @@ export function Header({ updateConnection }) {
                 <Link to="/">
                     <img src={logo} alt="logo" />
                 </Link>
-                <a href="https://discord.com/invite/YkdNDeGx" target="_blank" rel="noopener noreferrer">
-                    <img src={discord} alt="Discord" />
-                </a>
-                <a href="https://www.instagram.com/apepixelgang/" target="_blank" rel="noopener noreferrer">
-                    <img src={instagram} alt="Instagram" />
-                </a>
-                <a href="https://twitter.com/ApePixelGang" target="_blank" rel="noopener noreferrer">
-                    <img src={twitter} alt="Twitter" />
-                </a>
-                <a href="https://opensea.io/collection/ApePixelGang" target="_blank" rel="noopener noreferrer">
-                    <img src={opensea} alt="Opensea" />
-                </a>
+                {CONFIG.DISCORD.EXISTS === true &&
+                    <a href={CONFIG.DISCORD.URL} target="_blank" rel="noopener noreferrer">
+                        <img src={discord} alt="Discord" />
+                    </a>
+                }
+                {CONFIG.INSTAGRAM.EXISTS === true &&
+                    <a href={CONFIG.INSTAGRAM.URL} target="_blank" rel="noopener noreferrer">
+                        <img src={instagram} alt="Instagram" />
+                    </a>
+                }
+                {CONFIG.TWITTER.EXISTS === true &&
+                    <a href={CONFIG.TWITTER.URL} target="_blank" rel="noopener noreferrer">
+                        <img src={twitter} alt="Twitter" />
+                    </a>
+                }
+                {CONFIG.OPENSEA.EXISTS === true &&
+                    <a href={CONFIG.OPENSEA.URL} target="_blank" rel="noopener noreferrer">
+                        <img src={opensea} alt="Opensea" />
+                    </a>
+                }
+                {CONFIG.LOOKSRARE.EXISTS === true &&
+                    <a href={CONFIG.LOOKSRARE.URL} target="_blank" rel="noopener noreferrer">
+                        <img src={opensea} alt="Looksrare" />
+                    </a>
+                }
+
             </div>
             <div className="menu">
                 <NavLink activeclassname="active" className="heading-link" to="/">

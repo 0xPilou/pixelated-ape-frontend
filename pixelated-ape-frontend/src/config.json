@@ -1,0 +1,25 @@
+{
+    "PROJECT_NAME": "Ape Pixel Gang",
+    "CONTRACT_ADDRESS": "0xa6e99A4ED7498b3cdDCBB61a6A607a4925Faa1B7",
+    "MAX_MINT": 10,
+    "INSTAGRAM": {
+        "EXISTS": true,
+        "URL": "https://www.instagram.com/apepixelgang/"
+    },
+    "TWITTER": {
+        "EXISTS": true,
+        "URL": "https://twitter.com/ApePixelGang"
+    },
+    "DISCORD": {
+        "EXISTS": true,
+        "URL": "https://discord.com/invite/YkdNDeGx"
+    },
+    "OPENSEA": {
+        "EXISTS": true,
+        "URL": "https://opensea.io/collection/ApePixelGang"
+    },
+    "LOOKSRARE": {
+        "EXISTS": false,
+        "URL": ""
+    }
+}

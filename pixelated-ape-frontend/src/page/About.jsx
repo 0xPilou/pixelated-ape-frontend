@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core';
 import backgroundVideo from '../images/background.mp4';
 import gif from '../images/gif/preview450.gif';
 
+const CONFIG = require("../config.json");
 
 
 function About() {
@@ -12,12 +13,12 @@ function About() {
     </video> */}
     <section className="about">
       <Grid container direction="row" justifyContent="center" alignItems="center">
-        <h1 className='about-header'>ABOUT APE PIXEL GANG</h1>
+        <h1 className='about-header'>ABOUT {CONFIG.PROJECT_NAME}</h1>
       </Grid>
 
       <Grid container direction="row" justifyContent="center" alignItems="center">
         <Grid item xs={6}>
-          <Grid container direction="column" justifyContent="flex-start" alignItems="start">
+          <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start">
             <p className='about-collection-title'>THE COLLECTION</p>
             <p className='about-collection-text'>
               Ape Pixel Gang is a 1:1 Bored Ape Yacht Club Derivative Collection.
