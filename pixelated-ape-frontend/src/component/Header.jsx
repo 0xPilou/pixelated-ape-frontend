@@ -6,6 +6,7 @@ import discord from '../images/header/discord.png';
 import instagram from '../images/header/instagram.png';
 import twitter from '../images/header/twitter.png';
 import opensea from '../images/header/opensea.png';
+import looksrare from '../images/header/looksrare.png';
 import MetaMaskOnboarding from '@metamask/onboarding'
 
 const CONFIG = require("../config.json");
@@ -77,7 +78,7 @@ export function Header({ updateConnection }) {
                 }
                 {CONFIG.LOOKSRARE.EXISTS === true &&
                     <a href={CONFIG.LOOKSRARE.URL} target="_blank" rel="noopener noreferrer">
-                        <img src={opensea} alt="Looksrare" />
+                        <img src={looksrare} alt="Looksrare" />
                     </a>
                 }
 
