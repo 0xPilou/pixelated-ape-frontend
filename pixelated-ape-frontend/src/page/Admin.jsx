@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
 
 
-function Admin({ data, updateStartBlock, updateBaseURI, updateUnrevealedURI, updateRevealStatus }) {
+function Admin({ data, updateStartBlock, updateBaseURI, updateUnrevealedURI, updateRevealStatus, withdrawFunds }) {
     const [blockId, setBlockId] = useState(0);
     const [baseURI, setBaseURI] = useState("");
     const [unrevealedURI, setUnrevealedURI] = useState("");
@@ -102,8 +102,8 @@ function Admin({ data, updateStartBlock, updateBaseURI, updateUnrevealedURI, upd
             <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid item xs={8}>
                     <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" className="admin-grid-item">
-                        <p className='admin-section-name'>Contract balance : 500.25 ETH</p>
-                        <button className="admin-btn btn" >
+                        <p className='admin-section-name'>Contract balance : {data.balance / 10 ** 18} ETH</p>
+                        <button className="admin-btn btn" onClick={withdrawFunds}>
                             <span>Withdraw All</span>
                         </button>
                     </Grid>

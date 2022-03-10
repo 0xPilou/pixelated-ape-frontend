@@ -35,7 +35,7 @@ function App() {
         const maxQuantity = await contract.MAX_QTY();
         const startBlock = await contract.startBlock();
         const unrevealedURI = await contract.notRevealedURI();
-
+        const balance = await provider.getBalance(APG_ADDRESS)
         const revealStatus = await contract.revealed();
         const object = {
           "cost": cost,
@@ -43,7 +43,8 @@ function App() {
           "maxQuantity": String(maxQuantity),
           "startBlock": String(startBlock),
           "unrevealedURI": String(unrevealedURI),
-          "revealStatus": revealStatus
+          "revealStatus": revealStatus,
+          "balance": String(balance)
         }
         setData(object);
       }
@@ -137,7 +138,25 @@ function App() {
         await tx.wait();
         fetchData();
       }
-      
+
+      catch (err) {
+        setError(err.message);
+        console.log(err.message)
+      }
+    }
+  }
+
+  async function withdrawFunds() {
+    if (typeof window.ethereum !== 'undefined') {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(APG_ADDRESS, APG_ABI.abi, signer);
+      try {
+        const tx = await contract.withdrawAll();
+        await tx.wait();
+        fetchData();
+      }
+
       catch (err) {
         setError(err.message);
         console.log(err.message)
@@ -146,7 +165,7 @@ function App() {
   }
 
 
-  
+
 
   const increaseNumber = () => {
     if (number < 10) {
@@ -187,6 +206,7 @@ function App() {
             updateBaseURI={updateBaseURI}
             updateUnrevealedURI={updateUnrevealedURI}
             updateRevealStatus={updateRevealStatus}
+            withdrawFunds={withdrawFunds}
           />} />
 
         <Route path="*" element={<ErrorPage />} />
