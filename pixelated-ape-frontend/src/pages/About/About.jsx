@@ -1,10 +1,9 @@
 import React from "react";
 import { Grid } from '@material-ui/core';
-import backgroundVideo from '../images/background.mp4';
-import gif from '../images/gif/preview450.gif';
+import backgroundVideo from '../../images/background.mp4';
+import gif from '../../images/gif/preview450.gif';
 
-const CONFIG = require("../config.json");
-
+import CONFIG from '../../config.json'
 
 function About() {
   return <>
