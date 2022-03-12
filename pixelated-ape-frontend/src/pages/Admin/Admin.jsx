@@ -1,12 +1,15 @@
+/* Libs & Modules */
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 
+/* Components */
+import CustomDonutChart from '../../components/CustomDonutChart';
+
+/* Logic & Helpers */
 import AdminLogic from './AdminLogic'
 import FetchData from '../../helpers/FetchData'
 
-
-import CustomDonutChart from '../../components/CustomDonutChart';
-
+/* Style */
 import './Admin.css'
 
 function Admin() {
@@ -135,8 +138,5 @@ function Admin() {
                 </Grid>
             </Grid>
         </section>
-
     )
-}
-
-export default Admin
+} export default Admin

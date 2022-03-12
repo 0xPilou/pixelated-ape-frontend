@@ -1,6 +1,8 @@
+/* Libs & Modules */
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+/* Style */
 import './ErrorPage.css'
 
 function ErrorPage() {

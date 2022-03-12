@@ -1,6 +1,8 @@
+/* Libs & Modules */
 import { useState } from 'react';
 import { ethers } from 'ethers'
 
+/* Contract & Configuration */
 import CONFIG from '../../config.json'
 import CONTRACT from '../../contract/ApePixelGang.json'
 

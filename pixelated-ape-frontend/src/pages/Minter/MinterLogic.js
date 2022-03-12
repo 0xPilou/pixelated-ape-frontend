@@ -1,3 +1,4 @@
+/* Libs & Modules */
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers'
 
@@ -27,7 +28,9 @@ const MinterLogic = () => {
     }
 
     useEffect(() => {
-        fetchData();
+        let isMounted = true;
+        if (isMounted) fetchData();
+        return () => { isMounted = false };
     }, [])
 
     async function mint() {

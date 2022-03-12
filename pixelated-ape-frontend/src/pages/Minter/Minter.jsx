@@ -10,6 +10,7 @@ import FetchData from '../../helpers/FetchData'
 import backgroundVideo from '../../images/background.mp4';
 import gif from '../../images/gif/preview450.gif';
 
+/* Style */
 import './Minter.css'
 
 function Minter() {
