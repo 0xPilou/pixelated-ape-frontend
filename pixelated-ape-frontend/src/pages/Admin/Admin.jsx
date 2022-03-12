@@ -1,13 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
+
+import AdminLogic from './AdminLogic'
+import FetchData from '../../helpers/FetchData'
+
 
 import CustomDonutChart from '../../components/CustomDonutChart';
 
 
-function Admin({ data, updateStartBlock, updateBaseURI, updateUnrevealedURI, updateRevealStatus, withdrawFunds }) {
+function Admin() {
     const [blockId, setBlockId] = useState(0);
     const [baseURI, setBaseURI] = useState("");
     const [unrevealedURI, setUnrevealedURI] = useState("");
+
+    const { data, fetchData } = FetchData();
+
+    const { updateStartBlock,
+        updateBaseURI,
+        updateUnrevealedURI,
+        updateRevealStatus,
+        withdrawFunds
+    } = AdminLogic()
+
+    useEffect(() => {
+        let isMounted = true;
+        if (isMounted) fetchData();
+        return () => { isMounted = false };
+    }, [updateStartBlock,
+        updateBaseURI,
+        updateUnrevealedURI,
+        updateRevealStatus,
+        withdrawFunds
+    ])
 
     return (
         <section className="admin">
@@ -43,9 +67,9 @@ function Admin({ data, updateStartBlock, updateBaseURI, updateUnrevealedURI, upd
                     </Grid>
                     <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" className="admin-grid-item">
                         <p className='admin-section-name'>URI settings</p>
-                            <p className='admin-section-text'>
-                                Base URI can only be set once, proceed with caution
-                            </p>
+                        <p className='admin-section-text'>
+                            Base URI can only be set once, proceed with caution
+                        </p>
 
                         <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" className="admin-input-grid">
                             <input
@@ -58,15 +82,14 @@ function Admin({ data, updateStartBlock, updateBaseURI, updateUnrevealedURI, upd
                                 <span>Set</span>
                             </button>
                         </Grid>
+                        <p className='admin-section-text'>
+                            CURRENT UNREVEALED URI :
+                        </p>
                         {data.unrevealedURI === "0" &&
-                            <p className='admin-section-text'>
-                                Current Unrevealed URI : Not Set
-                            </p>
+                            <p className='admin-section-text'>Not Set</p>
                         }
                         {data.unrevealedURI !== "0" &&
-                            <p className='admin-section-text-nocap'>
-                                Current Unrevealed URI : {data.unrevealedURI}
-                            </p>
+                            <p className='admin-section-text-nocap'>{data.unrevealedURI}</p>
                         }
                         <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start">
                             <input
@@ -103,15 +126,15 @@ function Admin({ data, updateStartBlock, updateBaseURI, updateUnrevealedURI, upd
             </Grid>
             <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid item xs={8}>
-                    <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" className="admin-grid-item">
+                    <Grid container direction="column" justifyContent="center" alignItems="center" className="admin-grid-item">
                         <p className='admin-section-name'>Contract balance : {data.balance / 10 ** 18} ETH</p>
                         <button className="admin-btn btn" onClick={withdrawFunds}>
                             <span>Withdraw All</span>
                         </button>
+                        <CustomDonutChart />
                     </Grid>
                 </Grid>
             </Grid>
-            <CustomDonutChart/>
 
 
         </section>
