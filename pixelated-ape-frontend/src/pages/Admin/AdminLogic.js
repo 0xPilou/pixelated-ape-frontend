@@ -1,17 +1,12 @@
 import { useState } from 'react';
-import FetchData from '../../helpers/FetchData'
 import { ethers } from 'ethers'
-
 
 import CONFIG from '../../config.json'
 import CONTRACT from '../../contract/ApePixelGang.json'
 
-
 const AdminLogic = () => {
 
-    const { data, fetchData } = FetchData();
     const [error, setError] = useState('');
-
 
     async function updateStartBlock(blockId) {
         if (typeof window.ethereum !== 'undefined') {
@@ -45,7 +40,6 @@ const AdminLogic = () => {
         }
       }
 
-
       async function updateUnrevealedURI(unrevealedURI) {
         if (typeof window.ethereum !== 'undefined') {
           const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -71,7 +65,6 @@ const AdminLogic = () => {
             const tx = await contract.reveal();
             await tx.wait();
           }
-    
           catch (err) {
             setError(err.message);
             console.log(err.message)
@@ -88,15 +81,12 @@ const AdminLogic = () => {
             const tx = await contract.withdrawAll();
             await tx.wait();
           }
-    
           catch (err) {
             setError(err.message);
             console.log(err.message)
           }
         }
       }
-
-
     return { updateStartBlock, updateBaseURI, updateUnrevealedURI, updateRevealStatus, withdrawFunds };
 }
 export default AdminLogic;
