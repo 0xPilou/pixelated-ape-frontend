@@ -1,21 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import './ErrorPage.css'
+
 function ErrorPage() {
     return (
         <>
-            <p className='minting-wd-title error-page'>
-                Looks like you got lost in the Pixelverse
-            </p>
-            <div className='home-btn'>
+            <div className='error-page'>
+                <p className='error-title'>
+                    Looks like you got lost in the Pixelverse
+                </p>
                 <Link to="/">
-                    <button className="mint-btn btn">
+                    <button className="error-btn btn">
                         <span>Return Back Home</span>
                     </button>
                 </Link>
-
             </div>
         </>
     )
-}
-export default ErrorPage
+} export default ErrorPage
