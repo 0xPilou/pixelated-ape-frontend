@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, NavLink } from 'react-router-dom'
 
 import logo from "../images/logo96.png";
@@ -7,49 +7,19 @@ import instagram from '../images/header/instagram.png';
 import twitter from '../images/header/twitter.png';
 import opensea from '../images/header/opensea.png';
 import looksrare from '../images/header/looksrare.png';
-import MetaMaskOnboarding from '@metamask/onboarding'
+
+import Wallet from '../helpers/Wallet'
 
 const CONFIG = require("../config.json");
 
-export function Header({ updateConnection }) {
-    window.addEventListener('DOMContentLoaded', () => {
-        const onboarding = new MetaMaskOnboarding();
-        const onboardButton = document.getElementById('connectWallet');
-        let accounts;
+export function Header() {
 
-        const updateButton = async () => {
-            if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
-                onboardButton.innerText = 'Install MetaMask!';
-                onboardButton.onclick = () => {
-                    onboardButton.innerText = 'Connecting...';
-                    onboarding.startOnboarding();
-                };
-            } else if (accounts && accounts.length > 0) {
-                onboardButton.innerText = `✔ ${accounts[0].substring(0, 6)}...${accounts[0].slice(-4)}`;
-                onboarding.stopOnboarding();
-                updateConnection(true);
-            } else {
-                onboardButton.innerText = 'Connect MetaMask!';
-                onboardButton.onclick = async () => {
-                    await window.ethereum.request({
-                        method: 'eth_requestAccounts',
-                    })
-                        .then(function (accounts) {
-                            onboardButton.innerText = `✔ ${accounts[0].substring(0, 6)}...${accounts[0].slice(-4)}`;
-                            updateConnection(true);
-                        });
-                };
-            }
-        };
-        updateButton();
+    const { connectWalletHandler } = Wallet();
 
-        if (MetaMaskOnboarding.isMetaMaskInstalled()) {
-            window.ethereum.on('accountsChanged', (newAccounts) => {
-                accounts = newAccounts;
-                updateButton();
-            });
-        }
-    });
+    let connectionStatus = localStorage.getItem('status');
+    console.log(connectionStatus)
+    let activeAccount = localStorage.getItem('account');
+
     return <header>
         <div className="container">
             <div className="menu">
@@ -95,8 +65,21 @@ export function Header({ updateConnection }) {
                 </NavLink>
             </div>
             <div>
-                <button className="wallet-btn btn" id="connectWallet">
-                    <span>Connect</span>
+                <button className="wallet-btn btn" onClick={connectWalletHandler}>
+                    {!window.ethereum && <span>Install Metamask</span>}
+                    {window.ethereum &&
+                        <>
+                            {connectionStatus === "connected" &&
+                                <span> ✔ {activeAccount.substring(0, 6)}...{activeAccount.slice(-4)} </span>
+                            }
+                            {(connectionStatus === null
+                                || connectionStatus === "disconnected"
+                                || connectionStatus === "")
+                                &&
+                                <span> Connect Wallet </span>
+                            }
+                        </>
+                    }
                 </button>
             </div>
         </div>
