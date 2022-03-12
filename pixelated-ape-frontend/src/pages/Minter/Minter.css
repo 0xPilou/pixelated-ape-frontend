@@ -1,0 +1,41 @@
+/* MINTER PAGE STYLESHEET */
+
+.minter {
+    padding: 20px;
+}
+
+.minter-title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    margin-left: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+}
+  
+.minter-subtitle {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    margin-left: 50px; 
+    line-height: 30px
+}
+
+.minter-input {
+    margin-top: 30px;
+    margin-left: 2rem;
+    border-color: transparent;
+    width: 150px;
+    opacity: 1;
+}
+  
+.minter-btn {
+    margin-top: 30px;
+    margin-left: 2rem;
+    border-color: transparent;
+    text-transform: uppercase;
+}
