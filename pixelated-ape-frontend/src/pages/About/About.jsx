@@ -4,6 +4,7 @@ import backgroundVideo from '../../images/background.mp4';
 import gif from '../../images/gif/preview450.gif';
 
 import CONFIG from '../../config.json'
+import './About.css';
 
 function About() {
   return <>
