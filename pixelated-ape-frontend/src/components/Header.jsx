@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, NavLink } from 'react-router-dom'
 
 import logo from "../images/logo96.png";
@@ -17,7 +17,6 @@ export function Header() {
     const { connectWalletHandler } = Wallet();
 
     let connectionStatus = localStorage.getItem('status');
-    console.log(connectionStatus)
     let activeAccount = localStorage.getItem('account');
 
     return <header>
