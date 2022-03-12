@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
 
+import CustomDonutChart from '../../components/CustomDonutChart';
+
 
 function Admin({ data, updateStartBlock, updateBaseURI, updateUnrevealedURI, updateRevealStatus, withdrawFunds }) {
     const [blockId, setBlockId] = useState(0);
@@ -109,6 +111,7 @@ function Admin({ data, updateStartBlock, updateBaseURI, updateUnrevealedURI, upd
                     </Grid>
                 </Grid>
             </Grid>
+            <CustomDonutChart/>
 
 
         </section>
