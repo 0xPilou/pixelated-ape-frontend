@@ -1,57 +1,32 @@
 /* Libs & Modules */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Grid } from '@material-ui/core';
-import { ethers } from 'ethers'
 
 /* Logic & Helpers */
 import MinterLogic from './MinterLogic'
 import FetchData from '../../helpers/FetchData'
-import Wallet from '../../helpers/Wallet'
-
 
 /* UI Elements */
 import backgroundVideo from '../../images/background.mp4';
 import gif from '../../images/gif/preview450.gif';
 
-/* Contract & Configuration */
-import CONTRACT from '../../contract/ApePixelGang.json'
-import CONFIG from '../../config.json'
+
 
 
 function Minter() {
 
-  const { number, increaseNumber, decreaseNumber } = MinterLogic()
+  const { number, increaseNumber, decreaseNumber, mint } = MinterLogic()
   const { data, fetchData } = FetchData();
-  const [error, setError] = useState('');
 
   const connectionStatus = localStorage.getItem('status')
 
   useEffect(() => {
-    fetchData();
-  }, [])
+    let isMounted = true;
+    if (isMounted) fetchData();
+    return () => { isMounted = false };
+  }, [mint])
 
-  async function mint() {
-    if (typeof window.ethereum !== 'undefined') {
-      let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, CONTRACT.abi, signer);
-      try {
-        let overrides = {
-          from: accounts[0],
-          value: data.cost.mul(number)
-        }
-        const tx = await contract.mint(number, overrides);
-        await tx.wait();
-        fetchData();
-      }
-      catch (err) {
-        setError(err.message);
-        console.log(err.message)
 
-      }
-    }
-  }
 
   return <>
     {/* <video autoPlay loop muted className='video'>
