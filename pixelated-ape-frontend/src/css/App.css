@@ -1,10 +1,7 @@
 /* FONTS */
-
-/* @import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"); */
 @import url('http://fonts.cdnfonts.com/css/public-pixel');
 
 /* GLOBAL STYLES */
-
 :root {
   --font-primary: 'Public Pixel', sans-serif;
   --font-secondary: 'Public Pixel', sans-serif;
@@ -158,168 +155,12 @@ header .container {
   opacity: 0.6;
  }
 
-.mint-input {
-  margin-top: 30px;
-  margin-left: 2rem;
-  border-color: transparent;
-  width: 150px;
-  opacity: 1;
-}
-
-.warning {
-  margin-top: 20px;
-  font-size: 30px;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.mint-btn {
-  margin-top: 30px;
-  margin-left: 2rem;
-  border-color: transparent;
-  text-transform: uppercase;
-}
-
-.home-btn {
-  text-align: center;
-  align-items: center;
-}
-
-.minting {
-  padding: 20px;
-}
-
-/* ABOUT PAGE */
-
-.about {
-  padding: 80px;
-}
-
-.about-header {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 100px;
-  text-transform: uppercase;
-}
-
-.about-collection-title {
-  text-align: left;
-  font-size: 25px;
-  margin-bottom: 30px;
-}
-
-.about-collection-text {
-  text-align: left;
-  font-size: 15px;
-  margin-bottom: 30px;
-  margin-right: 30px;
-  text-transform: uppercase;
-  line-height: 32px;
-}
-
-/* ADMIN PAGE */
-
-.admin {
-  padding: 80px;
-}
-
-.admin-settings-header {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 100px;
-}
-
-.admin-treasury-header {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 100px;
-  margin-top: 100px;
-}
-
-.admin-grid-item {
-  margin-bottom: 80px;
-}
-
-.admin-input-grid {
-  margin-bottom: 60px
-}
-
-.admin-section-name {
-  text-align: left;
-  font-size: 25px;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-}
-
-.admin-section-text {
-  text-align: left;
-  font-size: 15px;
-  margin-bottom: 10px;
-  margin-right: 30px;
-  text-transform: uppercase;
-  line-height: 32px;
-}
-
-.admin-section-text-nocap {
-  text-align: left;
-  font-size: 15px;
-  margin-bottom: 10px;
-  margin-right: 30px;
-  line-height: 32px;
-}
-
-.admin-btn {
-  margin-top: 10px;
-  border-color: transparent;
-  text-transform: uppercase;
-}
-
-.admin-btn:disabled {
-  margin-top: 10px;
-}
-
-.admin-input-btn {
-  margin-top: 10px;
-  margin-right: 20px;
-  border-color: transparent;
-  text-transform: uppercase;
-}
-
-.admin-input-btn-nocap {
-  margin-top: 10px;
-  margin-right: 20px;
-  border-color: transparent;
-}
-
-/* MINTER PAGE */
-
-.minting-wd-title {
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 25px;
-  margin-left: 50px;
-  line-height: 50px;
-  text-transform: uppercase;
-}
-
-.minting-wd-subtitle {
-  text-align: center;
-  font-size: 15px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  margin-left: 50px;
-
-  line-height: 30px
-}
 
 
-/* ERROR PAGE */
 
-.error-page {
-  margin-top: 150px
-}
+
+
+
 
 /* MEDIA QUERIES */
 
