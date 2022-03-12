@@ -7,6 +7,7 @@ import FetchData from '../../helpers/FetchData'
 
 import CustomDonutChart from '../../components/CustomDonutChart';
 
+import './Admin.css'
 
 function Admin() {
     const [blockId, setBlockId] = useState(0);
@@ -38,7 +39,6 @@ function Admin() {
             <Grid container direction="row" justifyContent="center" alignItems="center">
                 <h1 className='admin-settings-header'>SETTINGS</h1>
             </Grid>
-
             <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid item xs={8}>
                     <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" className="admin-grid-item">
@@ -70,7 +70,6 @@ function Admin() {
                         <p className='admin-section-text'>
                             Base URI can only be set once, proceed with caution
                         </p>
-
                         <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" className="admin-input-grid">
                             <input
                                 className="admin-input-btn-nocap btn-nocap"
@@ -135,8 +134,6 @@ function Admin() {
                     </Grid>
                 </Grid>
             </Grid>
-
-
         </section>
 
     )
