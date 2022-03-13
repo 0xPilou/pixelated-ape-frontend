@@ -37,24 +37,21 @@ function Admin() {
 
     return (
         <section className="admin">
-            <Grid container direction="row" justifyContent="center" alignItems="center">
+            <Grid container className='admin-main-grid'>
                 <h1 className='admin-settings-header'>SETTINGS</h1>
             </Grid>
-            <Grid container direction="row" justifyContent="center" alignItems="center">
+            <Grid container className='admin-main-grid'>
                 <Grid item xs={8}>
-                    <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" className="admin-grid-item">
+                    <Grid container className="admin-grid-item">
                         <p className='admin-section-name'>Public Sale Starting Block</p>
+                        <p className='admin-section-text'>Current Start Block Number :</p>
                         {data.startBlock === "0" &&
-                            <p className='admin-section-text'>
-                                Current Start Block Number : Not Set
-                            </p>
+                            <p className='admin-section-text'>Not Set</p>
                         }
                         {data.startBlock !== "0" &&
-                            <p className='admin-section-text'>
-                                Current Start Block Number : {data.startBlock}
-                            </p>
+                            <p className='admin-section-text'>{data.startBlock}</p>
                         }
-                        <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start">
+                        <Grid container className="admin-input-grid">
                             <input
                                 className="admin-input-btn btn"
                                 type="number"
@@ -66,12 +63,10 @@ function Admin() {
                             </button>
                         </Grid>
                     </Grid>
-                    <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" className="admin-grid-item">
+                    <Grid container className="admin-grid-item">
                         <p className='admin-section-name'>URI settings</p>
-                        <p className='admin-section-text'>
-                            Base URI can only be set once, proceed with caution
-                        </p>
-                        <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start" className="admin-input-grid">
+                        <p className='admin-section-text'>Base URI can only be set once, proceed with caution</p>
+                        <Grid container className="admin-input-grid">
                             <input
                                 className="admin-input-btn-nocap btn-nocap"
                                 type="string"
@@ -79,19 +74,19 @@ function Admin() {
                                 onChange={e => setBaseURI(e.target.value)}
                             />
                             <button className="admin-btn btn" onClick={e => updateBaseURI(baseURI)}>
-                                <span>Set</span>
+                                <span>Update</span>
                             </button>
                         </Grid>
-                        <p className='admin-section-text'>
-                            CURRENT UNREVEALED URI :
-                        </p>
+                        <Grid>
+                        <p className='admin-section-text'>CURRENT UNREVEALED URI :</p>
+                        </Grid>
                         {data.unrevealedURI === "0" &&
                             <p className='admin-section-text'>Not Set</p>
                         }
                         {data.unrevealedURI !== "0" &&
                             <p className='admin-section-text-nocap'>{data.unrevealedURI}</p>
                         }
-                        <Grid container direction="row" justifyContent="flex-start" alignItems="flex-start">
+                        <Grid container className="admin-input-grid">
                             <input
                                 className="admin-input-btn-nocap btn-nocap"
                                 type="string"
@@ -103,7 +98,7 @@ function Admin() {
                             </button>
                         </Grid>
                     </Grid>
-                    <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" className="admin-grid-item">
+                    <Grid container direction="column" className="admin-grid-item">
                         <p className='admin-section-name'>Reveal settings</p>
                         {data.revealStatus === true &&
                             <p className='admin-section-text'>
@@ -121,10 +116,10 @@ function Admin() {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid container direction="row" justifyContent="center" alignItems="center">
+            <Grid container className='admin-main-grid'>
                 <h1 className='admin-treasury-header'>TREASURY</h1>
             </Grid>
-            <Grid container direction="row" justifyContent="center" alignItems="center">
+            <Grid container className='admin-main-grid'>
                 <Grid item xs={8}>
                     <Grid container direction="column" justifyContent="center" alignItems="center" className="admin-grid-item">
                         <p className='admin-section-name'>Contract balance : {data.balance / 10 ** 18} ETH</p>
