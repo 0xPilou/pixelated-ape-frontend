@@ -59,9 +59,12 @@ export function Header() {
                 <NavLink activeclassname="active" className="heading-link" to="/mint">
                     MINT
                 </NavLink>
-                <NavLink activeclassname="active" className="heading-link" to="/admin">
-                    ADMIN
-                </NavLink>
+                {String(activeAccount) === CONFIG.DEPLOYER_ADDRESS.toLowerCase() &&
+                    <NavLink activeclassname="active" className="heading-link" to="/admin">
+                        ADMIN
+                    </NavLink>
+                }
+
             </div>
             <div>
                 <button className="wallet-btn btn" onClick={connectWalletHandler}>
