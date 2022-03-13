@@ -2,8 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 
-/* Components */
-import CustomDonutChart from '../../components/CustomDonutChart';
 
 /* Logic & Helpers */
 import AdminLogic from './AdminLogic'
@@ -133,7 +131,6 @@ function Admin() {
                         <button className="admin-btn btn" onClick={withdrawFunds}>
                             <span>Withdraw All</span>
                         </button>
-                        <CustomDonutChart />
                     </Grid>
                 </Grid>
             </Grid>

@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import MetaMaskOnboarding from '@metamask/onboarding'
 
 const Wallet = () => {
