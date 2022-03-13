@@ -10,7 +10,7 @@ import Admin from './pages/Admin/Admin'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
 
 /* Style */
-import './css/App.css';
+import './App.css';
 
 function App() {
   return (
