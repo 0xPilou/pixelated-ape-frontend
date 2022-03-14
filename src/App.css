@@ -7,6 +7,7 @@
   --font-secondary: 'Public Pixel', sans-serif;
   --font-code: 'Public Pixel', sans-serif;
   --bg-color: #1d1f22;
+  --nav-color: #565657;
   --font-color: #929292;
   --btn-bg-color: #949494;
   --accent-color: #ffffff;
@@ -34,6 +35,17 @@ body {
   max-width: 1500px;
   margin: 0 auto;
   padding: 1rem 2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  min-height: 200vh;
+  padding: 150px 1rem 1rem;
 }
 
 /* HEADER */

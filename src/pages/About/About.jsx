@@ -17,7 +17,7 @@ function About() {
     {/* <video autoPlay loop muted className='video'>
       <source src={backgroundVideo} type='video/mp4' />
     </video> */}
-    <section className="about">
+    <div className="main">
       <Grid container direction="row" justifyContent="center" alignItems="center">
         <h1 className='about-header'>ABOUT {CONFIG.PROJECT_NAME}</h1>
       </Grid>
@@ -39,7 +39,7 @@ function About() {
           </div>
         </Grid>
       </Grid>
-    </section >
+    </div >
   </>
 }
 

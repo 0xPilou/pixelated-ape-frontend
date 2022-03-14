@@ -30,7 +30,7 @@ function Minter() {
     {/* <video autoPlay loop muted className='video'>
       <source src={backgroundVideo} type='video/mp4' />
     </video> */}
-    <section className="minter">
+    <div className="main">
       <Grid container spacing={2} justifyContent="center" alignItems="center">
         <Grid item xs={4}>
           <div>
@@ -70,7 +70,7 @@ function Minter() {
           </Grid>
         </Grid>
       </Grid>
-    </section>
+    </div>
   </>
 } export default Minter
 

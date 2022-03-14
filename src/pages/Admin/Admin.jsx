@@ -36,7 +36,7 @@ function Admin() {
     ])
 
     return (
-        <section className="admin">
+        <section className="main">
             <Grid container className='admin-main-grid'>
                 <h1 className='admin-settings-header'>SETTINGS</h1>
             </Grid>
