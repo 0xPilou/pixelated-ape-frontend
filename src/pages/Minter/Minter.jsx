@@ -31,36 +31,38 @@ function Minter() {
       <source src={backgroundVideo} type='video/mp4' />
     </video> */}
     <div className="main">
-      <Grid container spacing={2} justifyContent="center" alignItems="center">
-        <Grid item xs={4}>
+      <Grid className="minter__grid" container spacing={2} justifyContent="center" alignItems="center">
+        <Grid className="minter__grid__gif">
           <div>
-            <img src={gif} />
+            <img src={gif} className="minter__grid__gif__img" />
           </div>
         </Grid>
-        <Grid item xs={6}>
-          <Grid container direction="column" justifyContent="center" alignItems="center">
-            <p className='minter-title'>Mint a Pixelated Ape </p>
-            <p className='minter-subtitle'>Mint up to 10 APG and become a community member</p>
+        <Grid className="minter__grid__action">
+          <Grid>
+            <p className='minter__title'>Mint a Pixelated Ape </p>
+            <p className='minter__subtitle'>Mint up to 10 APG and become a community member</p>
             <Grid container spacing={2} justifyContent="center" alignItems="center">
               {(connectionStatus === null
                 || connectionStatus === "disconnected"
-                || connectionStatus === "") && <p className='minter-title'>Connect Wallet</p>}
+                || connectionStatus === "") && <p className='minter__title'>Connect Wallet</p>}
               {connectionStatus === "connected" &&
                 <>
-                  <p className='minter-title'>{data.totalSupply} / {data.maxQuantity}</p>
-                  <p className='minter-subtitle'>Each Pixelated Ape costs {data.cost / 10 ** 18} ETH</p>
+                  <p className='minter__title'>
+                    {data.totalSupply} / {data.maxQuantity}
+                  </p>
+                  <p className='minter__subtitle'>Each Pixelated Ape costs {data.cost / 10 ** 18} ETH</p>
                   <Grid container spacing={2} justifyContent="center" alignItems="center">
 
-                    <button className="minter-btn btn" onClick={decreaseNumber}>
+                    <button className="minter__btn__first btn" onClick={decreaseNumber}>
                       <span>-</span>
                     </button>
-                    <button className="minter-btn num">
+                    <button className="minter__btn num">
                       <span>{number}</span>
                     </button>
-                    <button className="minter-btn btn" onClick={increaseNumber}>
+                    <button className="minter__btn btn" onClick={increaseNumber}>
                       <span>+</span>
                     </button>
-                    <button className="minter-btn btn" onClick={mint}>
+                    <button className="minter__btn__last btn" onClick={mint}>
                       <span>Mint</span>
                     </button>
                   </Grid>
