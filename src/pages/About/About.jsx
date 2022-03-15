@@ -18,25 +18,23 @@ function About() {
       <source src={backgroundVideo} type='video/mp4' />
     </video> */}
     <div className="main">
-      <Grid container direction="row" justifyContent="center" alignItems="center">
-        <h1 className='about-header'>ABOUT {CONFIG.PROJECT_NAME}</h1>
+      <Grid>
+        <h1 className='about__header'>ABOUT {CONFIG.PROJECT_NAME}</h1>
       </Grid>
-      <Grid container direction="row" justifyContent="center" alignItems="center">
-        <Grid item xs={6}>
-          <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start">
-            <p className='about-collection-title'>THE COLLECTION</p>
-            <p className='about-collection-text'>
+      <Grid className="about__collection">
+        <Grid className="about__collection__description">
+          <Grid className="about__collection__description__text">
+            <p className='about__collection__title'>THE COLLECTION</p>
+            <p className='about__collection__text'>
               Ape Pixel Gang is a 1:1 Bored Ape Yacht Club Derivative Collection.
             </p>
-            <p className='about-collection-text'>
+            <p className='about__collection__text'>
               Each one of the 10k BAYC has been programmatically pixelated with a random pixel size.
             </p>
           </Grid>
         </Grid>
-        <Grid item xs={4}>
-          <div>
-            <img src={gif} />
-          </div>
+        <Grid className="about__collection__gif">
+            <img src={gif} className="about__collection__gif__img"/>
         </Grid>
       </Grid>
     </div >
