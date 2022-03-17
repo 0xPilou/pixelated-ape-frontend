@@ -11,10 +11,12 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .about__collection__description {
-    width: 50%;
+    width: 45%;
   }
 
   .about__collection__description__text {
@@ -55,8 +57,7 @@
   }
 
   .about__collection {
-    display: flex;
-    flex-wrap: wrap;
+
   }
 
 

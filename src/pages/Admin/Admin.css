@@ -1,18 +1,14 @@
 /* ADMIN PAGE STYLESHEET */
-
-.admin {
-    padding: 80px;
-  }
   
   .admin-settings-header {
     text-align: center;
-    font-size: 30px;
+    font-size: 3vw;
     margin-bottom: 100px;
   }
   
   .admin-treasury-header {
     text-align: center;
-    font-size: 30px;
+    font-size: 3vw;
     margin-bottom: 100px;
     margin-top: 100px;
   }
@@ -40,14 +36,14 @@
   
   .admin-section-name {
     text-align: left;
-    font-size: 25px;
+    font-size: 1.5vw;
     margin-bottom: 30px;
     text-transform: uppercase;
   }
   
   .admin-section-text {
     text-align: left;
-    font-size: 15px;
+    font-size: 1.5vw;
     margin-bottom: 10px;
     text-transform: uppercase;
     line-height: 32px;
@@ -55,7 +51,7 @@
   
   .admin-section-text-nocap {
     text-align: left;
-    font-size: 15px;
+    font-size: 1.5vw;
     margin-bottom: 10px;
     line-height: 32px;
   }
@@ -76,10 +72,90 @@
     margin-right: 20px;
     border-color: transparent;
     text-transform: uppercase;
+    z-index: -1;
   }
   
   .admin-input-btn-nocap {
     margin-top: 10px;
     margin-right: 20px;
     border-color: transparent;
+    z-index: -1;
   }
+
+
+@media screen and (max-width:767px) {
+  .admin-settings-header {
+    font-size: 5vw;
+  }
+  
+  .admin-treasury-header {
+    font-size: 5vw;
+  }
+
+  .admin-main-grid {
+    direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .admin-grid-item {
+    direction: column;
+    margin-bottom: 80px;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .admin-input-grid {
+    margin-bottom: 60px;
+    justify-content: center;
+    align-items: flex-start;
+    direction: row;
+  }
+  
+  .admin-section-name {
+    font-size: 4vw;
+    text-align: center;
+  }
+  
+  .admin-section-text {
+    text-align: center;
+    font-size: 3vw;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    line-height: 32px;
+  }
+  
+  .admin-section-text-nocap {
+    text-align: left;
+    font-size: 1.5vw;
+    margin-bottom: 10px;
+    line-height: 32px;
+  }
+  
+  .admin-btn {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    border-color: transparent;
+    text-transform: uppercase;
+  }
+  
+  .admin-btn:disabled {
+    margin-top: 10px;
+  }
+  
+  .admin-input-btn {
+    margin-top: 10px;
+    margin-right: 20px;
+    border-color: transparent;
+    text-transform: uppercase;
+    z-index: -1;
+  }
+  
+  .admin-input-btn-nocap {
+    margin-top: 10px;
+    margin-right: 20px;
+    border-color: transparent;
+    z-index: -1;
+  }
+}
