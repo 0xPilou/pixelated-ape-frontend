@@ -1,7 +1,7 @@
 /* Libs & Modules */
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Header } from './components/Header'
+import { Navbar } from './components/Navbar'
 
 /* Pages & Components */
 import Minter from './pages/Minter/Minter'
@@ -15,7 +15,7 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <Header />
+      <Navbar />
       <Routes>
         <Route path="/" element={<About />} />
         <Route path="/mint" element={<Minter />} />
