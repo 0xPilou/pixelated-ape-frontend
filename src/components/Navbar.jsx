@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from 'react-router-dom'
 
 import logo from "../images/logo96.png";
@@ -71,6 +71,22 @@ export function Navbar() {
                     }
                 </li>
             </ul>
+            <button className="navbar__item .slideInDown-3 wallet-btn btn" onClick={connectWalletHandler}>
+                {!window.ethereum && <span>Install Metamask</span>}
+                {window.ethereum &&
+                    <>
+                        {connectionStatus === "connected" &&
+                            <span> ✔ {activeAccount.substring(0, 6)}...{activeAccount.slice(-4)} </span>
+                        }
+                        {(connectionStatus === null
+                            || connectionStatus === "disconnected"
+                            || connectionStatus === "")
+                            &&
+                            <span> Connect Wallet </span>
+                        }
+                    </>
+                }
+            </button>
             <button className="navbar__burger" onClick={handleShowLinks}>
                 <span className="burger-bar"></span>
             </button>

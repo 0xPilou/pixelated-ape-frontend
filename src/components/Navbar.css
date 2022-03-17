@@ -6,9 +6,9 @@
     justify-content: space-between;
     padding: 1rem;
     width: 100%;
-    min-height: 75px;
+    min-height: 20vh;
     box-shadow: var(--header-shadow);
-    background-color: var(--nav-color);
+    background-color: var(--bg-color);
     font-size: 1.5vw;
 }
 
@@ -70,8 +70,7 @@
         padding: 2rem;
         visibility: hidden;
         transition: all .8s ease-out;
-        background-color: var(--nav-color);
-
+        background-color: var(--bg-color);
     }
 
     .show-nav .navbar__links {
