@@ -18,15 +18,24 @@
 }
 
 .navbar__socials {
-    padding: 0 0 0 2vw;
+    padding: 0 1vw 0 1vw;
 }
 
+
 .navbar__links {
-    display: flex
+    display: inline-flex;
+    align-items: center;
+}
+
+.navbar__item {
+    display: inline-block;
+    padding: 2vh 2vw 2vh 2vw;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .navbar__link {
-    padding: 0 0.3rem 0 2rem;
     color: var(--accent-color);
     opacity: .3;
     text-decoration: none;
@@ -48,7 +57,26 @@
     color: inherit;
 }
 
-@media screen and (max-width:767px) {
+.navbar__wallet {
+    width: 25vw;
+    border-color: transparent;
+    font-size: 1vw;
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--btn-bg-color);
+    color: var(--accent-color);
+    font-family: var(--font-secondary);
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 0 0 var(--accent-color);
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    text-transform: uppercase;
+    z-index: 0;
+  }
+
+@media screen and (max-width:1000px) {
     .navbar {
         display: inline;
     }
@@ -84,6 +112,13 @@
         padding: 1.5rem;
         font-size: 5vw;
     }
+
+    .navbar__wallet {
+        width: 60vw;
+        padding: 1.5rem;
+        font-size: 3vw;
+        display: block;
+      }
 
     .navbar__burger {
         display: block;

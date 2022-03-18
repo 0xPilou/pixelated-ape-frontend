@@ -34,59 +34,72 @@ export function Navbar() {
                 <Link to="/">
                     <img src={logo} />
                 </Link>
-                {CONFIG.DISCORD.EXISTS === true &&
-                    <a href={CONFIG.DISCORD.URL} target="_blank" rel="noopener noreferrer" className="navbar__socials">
+                {CONFIG.SOCIALS.DISCORD.EXISTS === true &&
+                    <a href={CONFIG.SOCIALS.DISCORD.URL} target="_blank" rel="noopener noreferrer" className="navbar__socials">
                         <img src={discord} alt="Discord" />
                     </a>
                 }
-                {CONFIG.INSTAGRAM.EXISTS === true &&
-                    <a href={CONFIG.INSTAGRAM.URL} target="_blank" rel="noopener noreferrer" className="navbar__socials">
+                {CONFIG.SOCIALS.INSTAGRAM.EXISTS === true &&
+                    <a href={CONFIG.SOCIALS.INSTAGRAM.URL} target="_blank" rel="noopener noreferrer" className="navbar__socials">
                         <img src={instagram} alt="Instagram" />
                     </a>
                 }
-                {CONFIG.TWITTER.EXISTS === true &&
-                    <a href={CONFIG.TWITTER.URL} target="_blank" rel="noopener noreferrer" className="navbar__socials">
+                {CONFIG.SOCIALS.TWITTER.EXISTS === true &&
+                    <a href={CONFIG.SOCIALS.TWITTER.URL} target="_blank" rel="noopener noreferrer" className="navbar__socials">
                         <img src={twitter} alt="Twitter" />
+                    </a>
+                }
+                {CONFIG.SOCIALS.OPENSEA.EXISTS === true &&
+                    <a href={CONFIG.SOCIALS.OPENSEA.URL} target="_blank" rel="noopener noreferrer" className="navbar__socials">
+                        <img src={opensea} alt="Opensea" />
+                    </a>
+                }
+                {CONFIG.SOCIALS.LOOKSRARE.EXISTS === true &&
+                    <a href={CONFIG.SOCIALS.LOOKSRARE.URL} target="_blank" rel="noopener noreferrer" className="navbar__socials">
+                        <img src={looksrare} alt="Looksrare" />
                     </a>
                 }
 
             </div>
             <ul className="navbar__links">
-                <li className="navbar__item .slideInDown-1">
+                <li className="navbar__item slideInDown-1">
                     <NavLink activeclassname="navbar__link__active" className="navbar__link" to="/" onClick={handleShowLinks}>
                         ABOUT
                     </NavLink>
                 </li>
-                <li className="navbar__item .slideInDown-2">
+                <li className="navbar__item slideInDown-2">
                     <NavLink activeclassname="navbar__link__active" className="navbar__link" to="/mint" onClick={handleShowLinks}>
                         MINT
                     </NavLink>
 
                 </li>
-                <li className="navbar__item .slideInDown-3">
+                <li className="navbar__item slideInDown-3">
                     {String(activeAccount) === CONFIG.DEPLOYER_ADDRESS.toLowerCase() &&
                         <NavLink activeclassname="navbar__link__active" className="navbar__link" to="/admin" onClick={handleShowLinks}>
                             ADMIN
                         </NavLink>
                     }
                 </li>
+                <li className="navbar__item slideInDown-4">
+                    <button className="navbar__wallet slideInDown-4" onClick={connectWalletHandler}>
+                        {!window.ethereum && <span>Install Metamask</span>}
+                        {window.ethereum &&
+                            <>
+                                {connectionStatus === "connected" &&
+                                    <span> ✔ {activeAccount.substring(0, 6)}...{activeAccount.slice(-4)} </span>
+                                }
+                                {(connectionStatus === null
+                                    || connectionStatus === "disconnected"
+                                    || connectionStatus === "")
+                                    &&
+                                    <span> Connect Wallet </span>
+                                }
+                            </>
+                        }
+                    </button>
+                </li>
             </ul>
-            <button className="navbar__item .slideInDown-3 wallet-btn btn" onClick={connectWalletHandler}>
-                {!window.ethereum && <span>Install Metamask</span>}
-                {window.ethereum &&
-                    <>
-                        {connectionStatus === "connected" &&
-                            <span> ✔ {activeAccount.substring(0, 6)}...{activeAccount.slice(-4)} </span>
-                        }
-                        {(connectionStatus === null
-                            || connectionStatus === "disconnected"
-                            || connectionStatus === "")
-                            &&
-                            <span> Connect Wallet </span>
-                        }
-                    </>
-                }
-            </button>
+
             <button className="navbar__burger" onClick={handleShowLinks}>
                 <span className="burger-bar"></span>
             </button>
