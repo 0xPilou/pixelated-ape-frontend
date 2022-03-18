@@ -56,25 +56,14 @@
   
 .minter__btn {
     margin-top: 30px;
-    margin-left: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     border-color: transparent;
     text-transform: uppercase;
 }
 
-.minter__btn__first {
-    margin-top: 30px;
-    border-color: transparent;
-    text-transform: uppercase;
-}
 
-.minter__btn__last {
-    margin-top: 30px;
-    margin-left: 2rem;
-    border-color: transparent;
-    text-transform: uppercase;
-}
-
-@media screen and (max-width:767px) {
+@media screen and (max-width:1000px) {
     .minter__grid__gif {
         width: 100%;
         justify-content: center;
@@ -86,9 +75,4 @@
     .minter__grid__action {
         width: 100%;
     }
-    
-    .minter__btn__last {
-        margin-left: 0;
-    }
-
 }

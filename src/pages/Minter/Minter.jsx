@@ -8,7 +8,7 @@ import FetchData from '../../helpers/FetchData'
 
 /* UI Elements */
 import backgroundVideo from '../../images/background.mp4';
-import gif from '../../images/gif/preview450.gif';
+import minter_gif from '../../images/gif/minter_gif.gif';
 
 /* Style */
 import './Minter.css'
@@ -34,7 +34,7 @@ function Minter() {
       <Grid className="minter__grid" container spacing={2} justifyContent="center" alignItems="center">
         <Grid className="minter__grid__gif">
           <div>
-            <img src={gif} className="minter__grid__gif__img" />
+            <img src={minter_gif} className="minter__grid__gif__img" />
           </div>
         </Grid>
         <Grid className="minter__grid__action">
@@ -51,20 +51,26 @@ function Minter() {
                     {data.totalSupply} / {data.maxQuantity}
                   </p>
                   <p className='minter__subtitle'>Each Pixelated Ape costs {data.cost / 10 ** 18} ETH</p>
-                  <Grid container spacing={2} justifyContent="center" alignItems="center">
-                    <button className="minter__btn__first btn" onClick={decreaseNumber}>
-                      <span>-</span>
-                    </button>
-                    <button className="minter__btn num">
-                      <span>{number}</span>
-                    </button>
-                    <button className="minter__btn btn" onClick={increaseNumber}>
-                      <span>+</span>
-                    </button>
-                    <button className="minter__btn__last btn" onClick={mint}>
-                      <span>Mint</span>
-                    </button>
+                  <Grid container direction="columns">
+                    <Grid container spacing={2} justifyContent="center" alignItems="center">
+                      <button className="minter__btn btn" onClick={decreaseNumber}>
+                        <span>-</span>
+                      </button>
+                      <button className="minter__btn num">
+                        <span>{number}</span>
+                      </button>
+                      <button className="minter__btn btn" onClick={increaseNumber}>
+                        <span>+</span>
+                      </button>
+                    </Grid>
+                    <Grid container justifyContent="center" alignItems="center">
+                      <button className="minter__btn btn" onClick={mint}>
+                        <span>Mint</span>
+                      </button>
+                    </Grid>
                   </Grid>
+
+
                 </>
               }
             </Grid>
