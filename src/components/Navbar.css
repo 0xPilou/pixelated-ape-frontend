@@ -6,7 +6,8 @@
     justify-content: space-between;
     padding: 1rem;
     width: 100%;
-    min-height: 20vh;
+    min-height: 15vh;
+    max-height: 18vh;
     box-shadow: var(--header-shadow);
     background-color: var(--bg-color);
     font-size: 1.5vw;
@@ -25,6 +26,7 @@
 .navbar__links {
     display: inline-flex;
     align-items: center;
+    transition: none;
 }
 
 .navbar__item {
@@ -58,9 +60,9 @@
 }
 
 .navbar__wallet {
-    width: 25vw;
+    width: 20vw;
     border-color: transparent;
-    font-size: 1vw;
+    font-size: 0.8vw;
     display: inline-block;
     padding: 1rem 2rem;
     background: var(--btn-bg-color);
@@ -110,11 +112,11 @@
     .navbar__link {
         display: block;
         padding: 1.5rem;
-        font-size: 5vw;
+        font-size: 4vw;
     }
 
     .navbar__wallet {
-        width: 60vw;
+        width: 58vw;
         padding: 1.5rem;
         font-size: 3vw;
         display: block;
