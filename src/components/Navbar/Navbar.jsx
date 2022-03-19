@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { Link, NavLink } from 'react-router-dom'
 
-import logo from "../images/logo96.png";
-import discord from '../images/header/discord.png';
-import instagram from '../images/header/instagram.png';
-import twitter from '../images/header/twitter.png';
-import opensea from '../images/header/opensea.png';
-import looksrare from '../images/header/looksrare.png';
+import logo from '../../images/logo96.png';
+import discord from '../../images/header/discord.png';
+import instagram from '../../images/header/instagram.png';
+import twitter from '../../images/header/twitter.png';
+import opensea from '../../images/header/opensea.png';
+import looksrare from '../../images/header/looksrare.png';
 
 import './Navbar.css'
 
-import Wallet from '../helpers/Wallet'
+import Wallet from '../../helpers/Wallet'
 
-const CONFIG = require("../config.json");
+const CONFIG = require("../../config.json");
 
 
 export function Navbar() {
@@ -67,12 +67,14 @@ export function Navbar() {
                         ABOUT
                     </NavLink>
                 </li>
-                <li className="navbar__item slideInDown-2">
-                    <NavLink activeclassname="navbar__link__active" className="navbar__link" to="/mint" onClick={handleShowLinks}>
-                        MINT
-                    </NavLink>
+                {CONFIG.CONTRACT_LIVE &&
+                    <li className="navbar__item slideInDown-2">
+                        <NavLink activeclassname="navbar__link__active" className="navbar__link" to="/mint" onClick={handleShowLinks}>
+                            MINT
+                        </NavLink>
 
-                </li>
+                    </li>
+                }
                 <li className="navbar__item slideInDown-3">
                     {String(activeAccount) === CONFIG.DEPLOYER_ADDRESS.toLowerCase() &&
                         <NavLink activeclassname="navbar__link__active" className="navbar__link" to="/admin" onClick={handleShowLinks}>
