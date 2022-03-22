@@ -68,7 +68,7 @@ function Admin() {
                         <p className='admin-section-text'>Base URI can only be set once, proceed with caution</p>
                         <Grid container className="admin-input-grid">
                             <input
-                                className="admin-input-btn-nocap btn-nocap"
+                                className="admin-input-btn-nocap"
                                 type="string"
                                 placeholder="INPUT BASE URI"
                                 onChange={e => setBaseURI(e.target.value)}
@@ -88,7 +88,7 @@ function Admin() {
                         }
                         <Grid container className="admin-input-grid">
                             <input
-                                className="admin-input-btn-nocap btn-nocap"
+                                className="admin-input-btn-nocap"
                                 type="string"
                                 placeholder="INPUT UNREVEALED URI"
                                 onChange={e => setUnrevealedURI(e.target.value)}
