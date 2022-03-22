@@ -1,0 +1,27 @@
+.member__socials {
+    text-decoration: none;
+}
+.member__card {
+    background: var(--tertiary);
+}
+
+
+.member__card__header {
+    text-align: center;
+}
+
+.member__prix {
+    text-align: center;
+}
+
+.member__contact {
+    justify-content: center;
+}
+
+.member__contact__button:hover {
+    background: linear-gradient(90deg, hsla(319, 100%, 88%, 1) 0%, hsla(300, 100%, 96%, 1) 25%, hsla(180, 100%, 96%, 1) 75%, hsla(187, 75%, 86%, 1) 100%);
+}
+
+.member__links {
+    text-decoration: none;
+}
