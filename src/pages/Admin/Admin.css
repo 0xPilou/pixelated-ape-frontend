@@ -72,16 +72,26 @@
     margin-right: 20px;
     border-color: transparent;
     text-transform: uppercase;
-    z-index: -1;
+    z-index: 0;
   }
   
   .admin-input-btn-nocap {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--tertiary);
+    color: var(--accent-color);
+    font-family: var(--font-secondary);
+    position: relative;
+    text-decoration: none;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 0 0 var(--accent-color);
     margin-top: 10px;
     margin-right: 20px;
     border-color: transparent;
-    z-index: -1;
+    z-index: 0;
   }
-
 
 @media screen and (max-width:767px) {
   .admin-settings-header {

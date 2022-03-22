@@ -6,12 +6,11 @@
   --font-primary: 'Public Pixel', sans-serif;
   --font-secondary: 'Public Pixel', sans-serif;
   --font-code: 'Public Pixel', sans-serif;
-  --bg-color: #1d1f22;
-  --nav-color: #565657;
-  --font-color: #929292;
-  --btn-bg-color: #949494;
-  --accent-color: #ffffff;
-  --header-shadow: #000 0px 0px 5px;
+  --primary:#122369;
+  --secondary:#7d8bff;
+  --tertiary:#b2d5ff;
+  --accent-color:#2048f7;
+  --header-shadow: var(--accent-color) 0px 0px 5px;
 }
 
 * {
@@ -25,11 +24,11 @@ nav {
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: var(--primary);
   display: flex;
   flex-flow: column;
   height: 100vh;
-  color: var(--font-color);
+  color: var(--secondary);
   font-family: var(--font-primary);
 }
 
@@ -64,7 +63,7 @@ ul {
 .btn {
   display: inline-block;
   padding: 1rem 2rem;
-  background: var(--btn-bg-color);
+  background: var(--tertiary);
   color: var(--accent-color);
   font-family: var(--font-secondary);
   font-size: 1rem;
@@ -82,7 +81,7 @@ ul {
 .btn:disabled {
   display: inline-block;
   padding: 1rem 2rem;
-  background: var(--btn-bg-color);
+  background: var(--tertiary);
   color: var(--accent-color);
   font-family: var(--font-secondary);
   font-size: 1rem;
@@ -100,7 +99,7 @@ ul {
 .btn-nocap {
   display: inline-block;
   padding: 1rem 2rem;
-  background: var(--btn-bg-color);
+  background: var(--tertiary);
   color: var(--accent-color);
   font-family: var(--font-secondary);
   font-size: 1rem;
@@ -116,7 +115,7 @@ ul {
   display: inline-block;
   padding: 1rem 2rem;
   width: 100px;
-  background: var(--btn-bg-color);
+  background: var(--tertiary);
   color: var(--accent-color);
   font-family: var(--font-secondary);
   font-weight: bold;
@@ -127,15 +126,12 @@ ul {
   position: relative;
   text-decoration: none;
   outline: none;
+  z-index: 0;
+
 }
 
 .btn:hover {
   box-shadow: none;
 }
 
-.active{
-  color: var(--accent-color);
-  text-decoration: underline;
-  text-underline-offset: 10px;
-  opacity: 0.6;
-}
+

@@ -9,7 +9,7 @@
     min-height: 15vh;
     max-height: 18vh;
     box-shadow: var(--header-shadow);
-    background-color: var(--bg-color);
+    background-color: var(--primary);
     font-size: 1.5vw;
 }
 
@@ -38,18 +38,17 @@
 }
 
 .navbar__link {
-    color: var(--accent-color);
-    opacity: .3;
+    color: var(--tertiary);
+    opacity: .7;
     text-decoration: none;
 }
 
-.navbar__link__active{
-    padding: 0 0.3rem;
-    color: var(--accent-color);
+.active{
+    color: var(--tertiary);
     text-decoration: underline;
     text-underline-offset: 10px;
-    opacity: .6;
-}
+    opacity: 1;
+  }
 
 .navbar__burger {
     width: 40px;
@@ -62,10 +61,10 @@
 .navbar__wallet {
     width: 20vw;
     border-color: transparent;
-    font-size: 0.8vw;
+    font-size: 0.9vw;
     display: inline-block;
     padding: 1rem 2rem;
-    background: var(--btn-bg-color);
+    background: var(--tertiary);
     color: var(--accent-color);
     font-family: var(--font-secondary);
     text-transform: capitalize;
@@ -100,7 +99,7 @@
         padding: 2rem;
         visibility: hidden;
         transition: all .8s ease-out;
-        background-color: var(--bg-color);
+        background-color: var(--primary);
     }
 
     .show-nav .navbar__links {
@@ -141,7 +140,7 @@
         height: 3px;
         position: relative;
         border-radius: 3px;
-        background: var(--accent-color);
+        background: var(--tertiary);
         transition: all .5s ease-in-out;
     }
 
