@@ -51,7 +51,7 @@ function Minter() {
                     {data.totalSupply} / {data.maxQuantity}
                   </p>
                   <p className='minter__subtitle'>Each Pixelated Ape costs {data.cost / 10 ** 18} ETH</p>
-                  <Grid container direction="columns">
+                  <Grid container direction="column">
                     <Grid container spacing={2} justifyContent="center" alignItems="center">
                       <button className="minter__btn btn" onClick={decreaseNumber}>
                         <span>-</span>
