@@ -13,19 +13,19 @@ function Team() {
         <Grid container spacing={8} className="team__grid">
             <Member 
                 name='0xPilou'
-                role='Lead Dev'
+                role='Developer'
                 img={pilou}
                 twitter="https://twitter.com/0xPilou"
             />
             <Member 
                 name='Benny Blanco'
-                role='Communication & Marketing'
+                role='Marketing'
                 img={bennyblanco}
                 twitter="https://twitter.com/BennyBlanco_OG"
             />
             <Member
                 name='Bapt Man'
-                role='Graphic Designer'
+                role='Designer'
                 img={baptman}
                 twitter="https://twitter.com/_bapt_man_"
             />
