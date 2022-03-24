@@ -12,9 +12,13 @@ import CONTRACT from '../../contract/ApePixelGang.json'
 const MinterLogic = () => {
     const [number, setNumber] = useState(3);
     const [error, setError] = useState('');
-
+    const [paymentMethod, setPaymentMethod] = useState("ETH")
     const { data, fetchData } = FetchData();
 
+
+    const updatePaymentMethod = (method) => {
+        setPaymentMethod(method);
+    }
 
     const increaseNumber = () => {
         if (number < CONFIG.MAX_MINT) {
@@ -52,6 +56,6 @@ const MinterLogic = () => {
             }
         }
     }
-    return { number, increaseNumber, decreaseNumber, mint };
+    return { paymentMethod, updatePaymentMethod, number, increaseNumber, decreaseNumber, mint };
 }
 export default MinterLogic;

@@ -5,6 +5,7 @@ import { Grid } from '@material-ui/core';
 /* Logic & Helpers */
 import MinterLogic from './MinterLogic'
 import FetchData from '../../helpers/FetchData'
+import { MintButton } from '../../components/MintButton/MintButton'
 
 /* UI Elements */
 import backgroundVideo from '../../images/background.mp4';
@@ -50,33 +51,16 @@ function Minter() {
                   <p className='minter__title'>
                     {data.totalSupply} / {data.maxQuantity}
                   </p>
-                  <p className='minter__subtitle'>Each Pixelated Ape costs {data.cost / 10 ** 18} ETH</p>
-                  <Grid container direction="column">
-                    <Grid container spacing={2} justifyContent="center" alignItems="center">
-                      <button className="minter__btn btn" onClick={decreaseNumber}>
-                        <span>-</span>
-                      </button>
-                      <button className="minter__btn num">
-                        <span>{number}</span>
-                      </button>
-                      <button className="minter__btn btn" onClick={increaseNumber}>
-                        <span>+</span>
-                      </button>
-                    </Grid>
-                    <Grid container justifyContent="center" alignItems="center">
-                      <button className="minter__btn btn" onClick={mint}>
-                        <span>Mint</span>
-                      </button>
-                    </Grid>
-                  </Grid>
-
-
+                  <p className='minter__subtitle'>Each piece costs {data.cost / 10 ** 18} ETH or 15 APECOIN</p>
+                  <MintButton />
                 </>
               }
             </Grid>
           </Grid>
         </Grid>
       </Grid>
+
+
     </div>
   </>
 } export default Minter
