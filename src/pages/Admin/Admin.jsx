@@ -43,17 +43,21 @@ function Admin() {
             <Grid container className='admin-main-grid'>
                 <Grid item xs={8}>
                     <Grid container className="admin-grid-item">
-                        <p className='admin-section-name'>Public Sale Starting Block</p>
-                        <p className='admin-section-text'>Current Start Block Number :</p>
-                        {data.startBlock === "0" &&
-                            <p className='admin-section-text'>Not Set</p>
-                        }
-                        {data.startBlock !== "0" &&
-                            <p className='admin-section-text'>{data.startBlock}</p>
-                        }
+                        <Grid item xs={12}>
+                            <p className='admin-section-name'>Public Sale Starting Block</p>
+                        </Grid>
+                        <Grid item xs={12}>
+                            {data.startBlock === "0" &&
+                                <p className='admin-section-text'>Current : Not Set</p>
+                            }
+                            {data.startBlock !== "0" &&
+                                <p className='admin-section-text'>Current : {data.startBlock}</p>
+                            }
+                        </Grid>
+
                         <Grid container className="admin-input-grid">
                             <input
-                                className="admin-input-btn btn"
+                                className="admin-input-btn"
                                 type="number"
                                 placeholder="input block number"
                                 onChange={e => setBlockId(e.target.value)}
@@ -78,7 +82,7 @@ function Admin() {
                             </button>
                         </Grid>
                         <Grid>
-                        <p className='admin-section-text'>CURRENT UNREVEALED URI :</p>
+                            <p className='admin-section-text'>CURRENT UNREVEALED URI :</p>
                         </Grid>
                         {data.unrevealedURI === "0" &&
                             <p className='admin-section-text'>Not Set</p>

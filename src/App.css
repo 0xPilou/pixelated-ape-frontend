@@ -1,11 +1,11 @@
 /* FONTS */
-@import url('https://fonts.cdnfonts.com/css/public-pixel');
+@import url('https://fonts.cdnfonts.com/css/hiskyflipper');
 
 /* GLOBAL STYLES */
 :root {
-  --font-primary: 'Public Pixel', sans-serif;
-  --font-secondary: 'Public Pixel', sans-serif;
-  --font-code: 'Public Pixel', sans-serif;
+  --font-primary: 'HISKYFLIPPERHI', sans-serif;
+  --font-secondary: 'HISKYFLIPPERHI', sans-serif;
+  --font-code: 'HISKYFLIPPERHI', sans-serif;
   --primary:#122369;
   --secondary:#7d8bff;
   --tertiary:#b2d5ff;
