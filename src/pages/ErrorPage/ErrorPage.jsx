@@ -8,7 +8,7 @@ import './ErrorPage.css'
 function ErrorPage() {
     return (
         <>
-            <div className='error-page'>
+            <div className='main error-page'>
                 <p className='error-title'>
                     Looks like you got lost in the Pixelverse
                 </p>
