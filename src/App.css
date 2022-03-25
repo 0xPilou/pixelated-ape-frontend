@@ -4,6 +4,7 @@
 /* GLOBAL STYLES */
 :root {
   --font-primary: 'HISKYFLIPPERHI', sans-serif;
+  --font-primary-bold: 'HISKYFLIPPERHIBOLD', sans-serif;
   --font-secondary: 'HISKYFLIPPERHI', sans-serif;
   --font-code: 'HISKYFLIPPERHI', sans-serif;
   --primary:#122369;
@@ -127,7 +128,6 @@ ul {
   text-decoration: none;
   outline: none;
   z-index: 0;
-
 }
 
 .btn:hover {
