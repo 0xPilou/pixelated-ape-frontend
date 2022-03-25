@@ -51,7 +51,7 @@ function Admin() {
                                 <p className='admin-section-text'>Current : Not Set</p>
                             }
                             {data.startBlock !== "0" &&
-                                <p className='admin-section-text'>Current : {data.startBlock}</p>
+                                <p className='admin-section-text'>Current : <span className="admin-info">{data.startBlock}</span></p>
                             }
                         </Grid>
 
@@ -88,7 +88,7 @@ function Admin() {
                             <p className='admin-section-text'>Not Set</p>
                         }
                         {data.unrevealedURI !== "0" &&
-                            <p className='admin-section-text-nocap'>{data.unrevealedURI}</p>
+                            <p className='admin-section-text-nocap'><span className="admin-info">{data.unrevealedURI}</span></p>
                         }
                         <Grid container className="admin-input-grid">
                             <input
@@ -106,12 +106,12 @@ function Admin() {
                         <p className='admin-section-name'>Reveal settings</p>
                         {data.revealStatus === true &&
                             <p className='admin-section-text'>
-                                Current Status : REVEALED
+                                Current Status : <span className="admin-info">REVEALED</span>
                             </p>
                         }
                         {data.revealStatus === false &&
                             <p className='admin-section-text'>
-                                Current Status : UNREVEALED
+                                Current Status : <span className="admin-info">UNREVEALED</span>
                             </p>
                         }
                         <button disabled={data.revealStatus} className="admin-btn btn" onClick={updateRevealStatus}  >
@@ -126,7 +126,8 @@ function Admin() {
             <Grid container className='admin-main-grid'>
                 <Grid item xs={8}>
                     <Grid container direction="column" justifyContent="center" alignItems="center" className="admin-grid-item">
-                        <p className='admin-section-name'>Contract balance : {data.balance / 10 ** 18} ETH</p>
+                        <p className='admin-section-name'>Contract balance : </p>
+                        <p className='admin-section-name'><span className="admin-info">{data.balance / 10 ** 18} ETH</span></p>
                         <button className="admin-btn btn" onClick={withdrawFunds}>
                             <span>Withdraw All</span>
                         </button>

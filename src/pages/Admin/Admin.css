@@ -51,6 +51,11 @@
     align-items: center;
     text-align: center;
   }
+
+  .admin-info {
+    color: var(--tertiary);
+    font-family: var(--font-primary-bold);
+}
   
   .admin-section-text-nocap {
     text-align: left;
