@@ -65,11 +65,25 @@
   }
   
   .admin-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--tertiary);
+    color: var(--accent-color);
+    font-family: var(--font-secondary);
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 0 0 var(--accent-color);
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    outline: none;
+    z-index: 0;
+    font-size: 1.5vw;
     margin-top: 10px;
     margin-bottom: 50px;
     border-color: transparent;
     text-transform: uppercase;
   }
+
   
   .admin-btn:disabled {
     margin-top: 10px;
@@ -84,7 +98,7 @@
     position: relative;
     text-decoration: none;
     outline: none;
-    font-size: 1rem;
+    font-size: 1.5vw;
     transition: all 0.3s ease;
     box-shadow: 4px 4px 0 0 var(--accent-color);
     margin-top: 10px;
@@ -103,7 +117,7 @@
     position: relative;
     text-decoration: none;
     outline: none;
-    font-size: 1rem;
+    font-size: 1.5vw;
     transition: all 0.3s ease;
     box-shadow: 4px 4px 0 0 var(--accent-color);
     margin-top: 10px;
@@ -163,10 +177,8 @@
   }
   
   .admin-btn {
-    margin-top: 10px;
-    margin-bottom: 50px;
-    border-color: transparent;
-    text-transform: uppercase;
+    font-size: 4vw;
+
   }
   
   .admin-btn:disabled {
@@ -174,17 +186,11 @@
   }
   
   .admin-input-btn {
-    margin-top: 10px;
-    margin-right: 20px;
-    border-color: transparent;
-    text-transform: uppercase;
-    z-index: -1;
+    font-size: 4vw;
+
   }
   
   .admin-input-btn-nocap {
-    margin-top: 10px;
-    margin-right: 20px;
-    border-color: transparent;
-    z-index: -1;
+    font-size: 4vw;
   }
 }

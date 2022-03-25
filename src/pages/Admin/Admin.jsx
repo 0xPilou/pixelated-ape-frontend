@@ -62,7 +62,7 @@ function Admin() {
                                 placeholder="input block number"
                                 onChange={e => setBlockId(e.target.value)}
                             />
-                            <button className="admin-btn btn" onClick={e => updateStartBlock(blockId)}>
+                            <button className="admin-btn" onClick={e => updateStartBlock(blockId)}>
                                 <span>Update</span>
                             </button>
                         </Grid>
@@ -77,7 +77,7 @@ function Admin() {
                                 placeholder="INPUT BASE URI"
                                 onChange={e => setBaseURI(e.target.value)}
                             />
-                            <button className="admin-btn btn" onClick={e => updateBaseURI(baseURI)}>
+                            <button className="admin-btn" onClick={e => updateBaseURI(baseURI)}>
                                 <span>Update</span>
                             </button>
                         </Grid>
@@ -97,7 +97,7 @@ function Admin() {
                                 placeholder="INPUT UNREVEALED URI"
                                 onChange={e => setUnrevealedURI(e.target.value)}
                             />
-                            <button className="admin-btn btn" onClick={e => updateUnrevealedURI(unrevealedURI)}>
+                            <button className="admin-btn" onClick={e => updateUnrevealedURI(unrevealedURI)}>
                                 <span>Update</span>
                             </button>
                         </Grid>
@@ -114,7 +114,7 @@ function Admin() {
                                 Current Status : <span className="admin-info">UNREVEALED</span>
                             </p>
                         }
-                        <button disabled={data.revealStatus} className="admin-btn btn" onClick={updateRevealStatus}  >
+                        <button disabled={data.revealStatus} className="admin-btn" onClick={updateRevealStatus}  >
                             <span>Reveal</span>
                         </button>
                     </Grid>
@@ -128,7 +128,7 @@ function Admin() {
                     <Grid container direction="column" justifyContent="center" alignItems="center" className="admin-grid-item">
                         <p className='admin-section-name'>Contract balance : </p>
                         <p className='admin-section-name'><span className="admin-info">{data.balance / 10 ** 18} ETH</span></p>
-                        <button className="admin-btn btn" onClick={withdrawFunds}>
+                        <button className="admin-btn" onClick={withdrawFunds}>
                             <span>Withdraw All</span>
                         </button>
                     </Grid>
