@@ -1,5 +1,4 @@
 /* MINTER PAGE STYLESHEET */
-
 .minter__grid {
     width: 100%;
     justify-content: center;
@@ -9,7 +8,7 @@
 }
 
 .minter__grid__gif {
-    width: 50%;
+    width: 55%;
     justify-content: left;
     align-items: left;
     text-align: left;
@@ -24,44 +23,94 @@
 }
 
 .minter__grid__action {
-    width: 50%;
+    width: 45%;
 }
-
-
 
 .minter__title {
     text-align: center;
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 3vw;
+    font-weight: bolder;
     margin-bottom: 25px;
     line-height: 50px;
     text-transform: uppercase;
 }
+
   
 .minter__subtitle {
     text-align: center;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 2vw;
     text-transform: uppercase;
     margin-bottom: 30px;
-    line-height: 30px
+    line-height: 6vh
+}
+
+.minter__reminder {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    line-height: 3vh
+}
+
+.minter__subtitle__price {
+    text-align: center;
+    font-size: 2vw;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    line-height: 6vh
+}
+
+
+.minter__info {
+    color: var(--tertiary);
+    font-family: var(--font-primary-bold);
 }
 
 .minter__input {
+    display: inline-block;
+    padding: 1rem 2rem;
+    width: 100px;
+    background: var(--tertiary);
+    color: var(--accent-color);
+    font-family: var(--font-secondary);
+    font-weight: bold;
+    font-size: 1.5vw;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+    cursor:none;
+    position: relative;
+    text-decoration: none;
+    outline: none;
+    z-index: 0;
     margin-top: 30px;
+    margin-left: 1rem;
+    margin-right: 1rem;
     border-color: transparent;
-    width: 150px;
     opacity: 1;
 }
   
 .minter__btn {
+    display: inline-block;
+    background: var(--tertiary);
+    color: var(--accent-color);
+    font-family: var(--font-secondary);
+    padding: 1rem 2rem;
+    font-size: 1.5vw;
     margin-top: 30px;
     margin-left: 1rem;
     margin-right: 1rem;
     border-color: transparent;
     text-transform: uppercase;
+    z-index: 0;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 0 0 var(--accent-color);
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    outline: none;
 }
-
 
 @media screen and (max-width:1000px) {
     .minter__grid__gif {
@@ -74,5 +123,25 @@
     
     .minter__grid__action {
         width: 100%;
+    }
+
+    .minter__title {
+        font-size: 6vw;
+    }
+      
+    .minter__subtitle {
+        font-size: 4vw;
+    }
+
+    .minter__subtitle__price {
+        font-size: 4vw;
+    }
+
+    .minter__input {
+        font-size: 4vw;
+    }
+      
+    .minter__btn {
+        font-size: 4vw;
     }
 }
