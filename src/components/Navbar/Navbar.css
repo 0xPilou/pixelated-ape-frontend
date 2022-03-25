@@ -10,7 +10,7 @@
     max-height: 18vh;
     box-shadow: var(--header-shadow);
     background-color: var(--primary);
-    font-size: 1.5vw;
+    font-size: 2vw;
 }
 
 .navbar__logo {
@@ -61,7 +61,7 @@
 .navbar__wallet {
     width: 20vw;
     border-color: transparent;
-    font-size: 0.9vw;
+    font-size: 1.5vw;
     display: inline-block;
     padding: 1rem 2rem;
     background: var(--tertiary);
@@ -111,11 +111,11 @@
     .navbar__link {
         display: block;
         padding: 1.5rem;
-        font-size: 4vw;
+        font-size: 6vw;
     }
 
     .navbar__wallet {
-        width: 58vw;
+        width: 45vw;
         padding: 1.5rem;
         font-size: 3vw;
         display: block;
