@@ -8,20 +8,22 @@ import MinterLogic from '../../pages/Minter/MinterLogic';
 
 import { MuiTheme } from '../../helpers/MuiTheme';
 
-export function MintButton() {
+export function MintButton({ data, refetch }) {
     const {
         paymentMethod,
         updatePaymentMethod,
         number,
         increaseNumber,
         decreaseNumber,
-        mint
+        mint,
+        approve,
+        mintWithApecoin
     } = MinterLogic();
 
     return (
         <>
             <Grid container direction="column" justifyContent="center" alignItems="center">
-                <p className='minter__subtitle'>PAY WITH :</p>
+                <p className='minter__subtitle'>Mint With :</p>
                 <ThemeProvider theme={MuiTheme}>
                     <FormControl component="fieldset">
                         <RadioGroup
@@ -72,16 +74,30 @@ export function MintButton() {
                 </Grid>
                 {paymentMethod === "ETH" &&
                     <Grid container justifyContent="center" alignItems="center">
-                        <button className="minter__btn" onClick={mint}>
+                        <button className="minter__btn"
+                            onClick={() => {
+                                mint().then(() => {
+                                    refetch();
+                                })
+                            }}
+                        >
                             <span>Mint</span>
                         </button>
                     </Grid>
                 }
                 {paymentMethod === "APECOIN" &&
                     <Grid container direction="column" justifyContent="center" alignItems="center">
-                        <button className="minter__btn" onClick={mint}>
-                            <span>Approve</span>
-                        </button>
+                        {(data.apecoinAllowance / 10 ** 18) < (number * 15) &&
+                            <button className="minter__btn"
+                                onClick={() => {
+                                    approve().then(() => {
+                                        refetch();
+                                    })
+                                }}
+                            >
+                                <span>Approve</span>
+                            </button>
+                        }
                     </Grid>
                 }
             </Grid>
