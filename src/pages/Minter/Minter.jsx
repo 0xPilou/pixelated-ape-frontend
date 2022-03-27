@@ -1,9 +1,8 @@
 /* Libs & Modules */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Grid } from '@material-ui/core';
 
 /* Logic & Helpers */
-import MinterLogic from './MinterLogic'
 import useFetch from '../../helpers/useFetch'
 
 import { MintButton } from '../../components/MintButton/MintButton'
