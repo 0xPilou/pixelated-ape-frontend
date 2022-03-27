@@ -1,11 +1,10 @@
 /* Libs & Modules */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
 
 
 /* Logic & Helpers */
 import AdminLogic from './AdminLogic'
-// import FetchData from '../../helpers/FetchData'
 import useFetch from '../../helpers/useFetch'
 
 /* Style */
@@ -16,7 +15,6 @@ function Admin() {
     const [baseURI, setBaseURI] = useState("");
     const [unrevealedURI, setUnrevealedURI] = useState("");
 
-    // const { data, fetchData } = FetchData();
     const { data, refetch } = useFetch();
 
 
@@ -26,17 +24,6 @@ function Admin() {
         updateRevealStatus,
         withdrawFunds
     } = AdminLogic()
-
-    // useEffect(() => {
-    //     let isMounted = true;
-    //     if (isMounted) fetchData();
-    //     return () => { isMounted = false };
-    // }, [updateStartBlock,
-    //     updateBaseURI,
-    //     updateUnrevealedURI,
-    //     updateRevealStatus,
-    //     withdrawFunds
-    // ])
 
     return (
         <section className="main">
