@@ -134,8 +134,9 @@ function Admin() {
             <Grid container className='admin-main-grid'>
                 <Grid item xs={8}>
                     <Grid container direction="column" justifyContent="center" alignItems="center" className="admin-grid-item">
-                        <p className='admin-section-name'>Contract balance : </p>
+                        <p className='admin-section-name'>Contract balances : </p>
                         <p className='admin-section-name'><span className="admin-info">{data.balance / 10 ** 18} ETH</span></p>
+                        <p className='admin-section-name'><span className="admin-info">{data.apeBalance / 10 ** 18} APECOIN</span></p>
                         <button className="admin-btn"
                             onClick={() => {
                                 withdrawFunds().then(() => {

@@ -26,7 +26,8 @@ function useFetch() {
                     const maxQuantity = await contract.MAX_QTY();
                     const startBlock = await contract.startBlock();
                     const unrevealedURI = await contract.notRevealedURI();
-                    const balance = await provider.getBalance(CONFIG.CONTRACT_ADDRESS)
+                    const balance = await provider.getBalance(CONFIG.CONTRACT_ADDRESS);
+                    const apeBalance = await apecoin.balanceOf(CONFIG.CONTRACT_ADDRESS);
                     const revealStatus = await contract.revealed();
 
                     // Needed to accept APECOIN as payment
@@ -41,6 +42,7 @@ function useFetch() {
                         "unrevealedURI": String(unrevealedURI),
                         "revealStatus": revealStatus,
                         "balance": String(balance),
+                        "apeBalance": String(apeBalance),
                         "apecoinAllowance": String(apecoinAllowance)
                     }
                     console.log(String(apecoinAllowance) / 10 ** 18);
@@ -69,7 +71,8 @@ function useFetch() {
                 const maxQuantity = await contract.MAX_QTY();
                 const startBlock = await contract.startBlock();
                 const unrevealedURI = await contract.notRevealedURI();
-                const balance = await provider.getBalance(CONFIG.CONTRACT_ADDRESS)
+                const balance = await provider.getBalance(CONFIG.CONTRACT_ADDRESS);
+                const apeBalance = await apecoin.balanceOf(CONFIG.CONTRACT_ADDRESS);
                 const revealStatus = await contract.revealed();
 
                 // Needed to accept APECOIN as payment
@@ -84,6 +87,7 @@ function useFetch() {
                     "unrevealedURI": String(unrevealedURI),
                     "revealStatus": revealStatus,
                     "balance": String(balance),
+                    "apeBalance": String(apeBalance),
                     "apecoinAllowance": String(apecoinAllowance)
                 }
                 console.log(String(apecoinAllowance) / 10 ** 18);

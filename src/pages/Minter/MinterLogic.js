@@ -1,5 +1,5 @@
 /* Libs & Modules */
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 import { ethers } from 'ethers'
 
 /* Logic & Helpers */
@@ -15,7 +15,7 @@ const MinterLogic = () => {
     const [error, setError] = useState('');
     const [paymentMethod, setPaymentMethod] = useState("ETH")
 
-    const { data, refetch } = useFetch();
+    const { data } = useFetch();
 
     const updatePaymentMethod = (method) => {
         setPaymentMethod(method);
@@ -73,12 +73,23 @@ const MinterLogic = () => {
     }
 
     const mintWithApecoin = async () => {
-
+        if (typeof window.ethereum !== 'undefined') {
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const contract = new ethers.Contract(CONFIG.CONTRACT_ADDRESS, CONTRACT.abi, signer);
+            try {
+                const tx = await contract.mintWithApecoin(number);
+                await tx.wait();
+            }
+            catch (err) {
+                setError(err.message);
+            }
+        }
     }
 
 
     return { paymentMethod, updatePaymentMethod, number, increaseNumber, decreaseNumber, mint, approve, mintWithApecoin };
-    
+
 }
 export default MinterLogic;
 
