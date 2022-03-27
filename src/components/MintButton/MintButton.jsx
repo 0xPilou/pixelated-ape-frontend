@@ -98,6 +98,17 @@ export function MintButton({ data, refetch }) {
                                 <span>Approve</span>
                             </button>
                         }
+                        {(data.apecoinAllowance / 10 ** 18) >= (number * 15) &&
+                            <button className="minter__btn"
+                                onClick={() => {
+                                    mintWithApecoin(number).then(() => {
+                                        refetch();
+                                    })
+                                }}
+                            >
+                                <span>Mint</span>
+                            </button>
+                        }
                     </Grid>
                 }
             </Grid>
