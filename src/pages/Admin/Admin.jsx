@@ -5,7 +5,8 @@ import { Grid } from '@material-ui/core';
 
 /* Logic & Helpers */
 import AdminLogic from './AdminLogic'
-import FetchData from '../../helpers/FetchData'
+// import FetchData from '../../helpers/FetchData'
+import useFetch from '../../helpers/useFetch'
 
 /* Style */
 import './Admin.css'
@@ -15,7 +16,9 @@ function Admin() {
     const [baseURI, setBaseURI] = useState("");
     const [unrevealedURI, setUnrevealedURI] = useState("");
 
-    const { data, fetchData } = FetchData();
+    // const { data, fetchData } = FetchData();
+    const { data, refetch } = useFetch();
+
 
     const { updateStartBlock,
         updateBaseURI,
@@ -24,16 +27,16 @@ function Admin() {
         withdrawFunds
     } = AdminLogic()
 
-    useEffect(() => {
-        let isMounted = true;
-        if (isMounted) fetchData();
-        return () => { isMounted = false };
-    }, [updateStartBlock,
-        updateBaseURI,
-        updateUnrevealedURI,
-        updateRevealStatus,
-        withdrawFunds
-    ])
+    // useEffect(() => {
+    //     let isMounted = true;
+    //     if (isMounted) fetchData();
+    //     return () => { isMounted = false };
+    // }, [updateStartBlock,
+    //     updateBaseURI,
+    //     updateUnrevealedURI,
+    //     updateRevealStatus,
+    //     withdrawFunds
+    // ])
 
     return (
         <section className="main">
@@ -62,7 +65,13 @@ function Admin() {
                                 placeholder="input block number"
                                 onChange={e => setBlockId(e.target.value)}
                             />
-                            <button className="admin-btn" onClick={e => updateStartBlock(blockId)}>
+                            <button className="admin-btn"
+                                onClick={e => {
+                                    updateStartBlock(blockId).then(() => {
+                                        refetch();
+                                    })
+                                }}
+                            >
                                 <span>Update</span>
                             </button>
                         </Grid>
@@ -97,7 +106,13 @@ function Admin() {
                                 placeholder="INPUT UNREVEALED URI"
                                 onChange={e => setUnrevealedURI(e.target.value)}
                             />
-                            <button className="admin-btn" onClick={e => updateUnrevealedURI(unrevealedURI)}>
+                            <button className="admin-btn"
+                                onClick={e => {
+                                    updateUnrevealedURI(unrevealedURI).then(() => {
+                                        refetch();
+                                    })
+                                }}
+                            >
                                 <span>Update</span>
                             </button>
                         </Grid>
@@ -114,7 +129,13 @@ function Admin() {
                                 Current Status : <span className="admin-info">UNREVEALED</span>
                             </p>
                         }
-                        <button disabled={data.revealStatus} className="admin-btn" onClick={updateRevealStatus}  >
+                        <button disabled={data.revealStatus} className="admin-btn"
+                            onClick={() => {
+                                updateRevealStatus().then(() => {
+                                    refetch();
+                                })
+                            }}
+                        >
                             <span>Reveal</span>
                         </button>
                     </Grid>
@@ -128,7 +149,13 @@ function Admin() {
                     <Grid container direction="column" justifyContent="center" alignItems="center" className="admin-grid-item">
                         <p className='admin-section-name'>Contract balance : </p>
                         <p className='admin-section-name'><span className="admin-info">{data.balance / 10 ** 18} ETH</span></p>
-                        <button className="admin-btn" onClick={withdrawFunds}>
+                        <button className="admin-btn"
+                            onClick={() => {
+                                withdrawFunds().then(() => {
+                                    refetch();
+                                })
+                            }}
+                        >
                             <span>Withdraw All</span>
                         </button>
                     </Grid>
