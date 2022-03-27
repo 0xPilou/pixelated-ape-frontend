@@ -31,7 +31,7 @@
     font-size: 3vw;
     font-weight: bolder;
     margin-bottom: 25px;
-    line-height: 50px;
+    line-height: 45px;
     text-transform: uppercase;
 }
 
@@ -76,7 +76,7 @@
     color: var(--accent-color);
     font-family: var(--font-secondary);
     font-weight: bold;
-    font-size: 1.5vw;
+    font-size: 2vw;
     text-transform: capitalize;
     transition: all 0.3s ease;
     cursor:none;
@@ -97,7 +97,7 @@
     color: var(--accent-color);
     font-family: var(--font-secondary);
     padding: 1rem 2rem;
-    font-size: 1.5vw;
+    font-size: 2vw;
     margin-top: 30px;
     margin-left: 1rem;
     margin-right: 1rem;
