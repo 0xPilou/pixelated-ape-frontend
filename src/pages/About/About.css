@@ -2,7 +2,7 @@
 
   .about__header {
     text-align: center;
-    font-size: 35px;
+    font-size: 4vw;
     margin-bottom: 7%;
     text-transform: uppercase;
   }
@@ -28,14 +28,19 @@
 
   .about__collection__title {
     text-align: left;
-    font-size: 28px;
+    font-size: 2.5vw;
     font-weight: bold;
     margin-bottom: 8vh;
   }
+
+  .about__info {
+    color: var(--tertiary);
+    font-family: var(--font-primary-bold);
+}
   
   .about__collection__text {
     text-align: left;
-    font-size: 15px;
+    font-size: 1.5vw;
     margin-bottom: 8vh;
     margin-right: 3vw;
     text-transform: uppercase;
@@ -58,10 +63,6 @@
     text-align: center;
   }
 
-  .about__team {
-
-  }
-
 
 @media screen and (max-width:1000px) {
   .about__collection {
@@ -77,18 +78,29 @@
     text-align: center;
   }
 
+  .about__header {
+    font-size: 7vw;
+    margin-bottom: 15%;
+  }
+
   .about__collection__title {
     text-align: center;
-    font-size: 25px;
+    font-size: 5vw;
     margin-bottom: 8vh;
   }
   
   .about__collection__text {
     text-align: center;
-    font-size: 15px;
+    font-size: 3vw;
     margin-bottom: 8vh;
     margin-right: 3vw;
     text-transform: uppercase;
     line-height: 32px;
   }
+
+
+
+
+
+
 }

@@ -29,12 +29,9 @@ function About() {
           <Grid className="about__collection__description__text">
             <p className='about__collection__title'>THE COLLECTION</p>
             <p className='about__collection__text'>
-              {CONFIG.ABOUT_COLLECTION_1}
-            </p>
+              Ape Pixel Gang is a 1:1 <span className="about__info">Bored Ape Yacht Club Derivative</span> Collection.</p>
             <p className='about__collection__text'>
-              {CONFIG.ABOUT_COLLECTION_2}
-
-            </p>
+              Each one of the 10k BAYC has been programmatically <span className="about__info">pixelated with a random pixel size</span>.</p>
           </Grid>
         </Grid>
         <Grid className="about__collection__gif">
@@ -45,6 +42,12 @@ function About() {
         <h1 className='about__header'>ABOUT THE TEAM</h1>
       </Grid>
       <Team />
+
+
+
+
+
+
     </div >
   </>
 }

@@ -15,5 +15,20 @@ export const MuiTheme = createTheme({
                 },
             },
         },
+        MuiCard: {
+            root: {
+                background: '#b2d5ff',
+            }
+        },
+        MuiCardHeader: {
+            title: {
+                color: '#122369',
+                fontFamily: 'HISKYFLIPPERHI'
+            },
+            subheader: {
+                fontFamily: 'HISKYFLIPPERHI'
+            }
+
+        }
     }
 });

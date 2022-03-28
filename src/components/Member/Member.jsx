@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardHeader, CardContent, CardActions, Grid, CardMedia, Typography } from '@material-ui/core';
+import { Card, CardHeader, CardContent, CardActions, Grid, CardMedia } from '@material-ui/core';
 import './Member.css';
 
 function Member({ name, role, img, twitter }) {
