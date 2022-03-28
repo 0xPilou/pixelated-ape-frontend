@@ -45,7 +45,6 @@ function useFetch() {
                         "apeBalance": String(apeBalance),
                         "apecoinAllowance": String(apecoinAllowance)
                     }
-                    console.log(String(apecoinAllowance) / 10 ** 18);
                     setData(object);
                 }
                 catch (err) {
@@ -90,7 +89,6 @@ function useFetch() {
                     "apeBalance": String(apeBalance),
                     "apecoinAllowance": String(apecoinAllowance)
                 }
-                console.log(String(apecoinAllowance) / 10 ** 18);
                 setData(object);
             }
             catch (err) {
