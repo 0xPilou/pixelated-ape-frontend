@@ -18,6 +18,10 @@ export const MuiTheme = createTheme({
         MuiCard: {
             root: {
                 background: '#b2d5ff',
+                borderRadius: "30px",
+                transition: "top .5s ease"
+
+
             }
         },
         MuiCardHeader: {
@@ -29,6 +33,12 @@ export const MuiTheme = createTheme({
                 fontFamily: 'HISKYFLIPPERHI'
             }
 
+        },
+        MuiCardMedia: {
+            root: {
+                borderRadius: "15px"
+            }
         }
+
     }
 });

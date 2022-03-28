@@ -79,19 +79,19 @@
   }
 
   .about__header {
-    font-size: 7vw;
+    font-size: 8vw;
     margin-bottom: 15%;
   }
 
   .about__collection__title {
     text-align: center;
-    font-size: 5vw;
+    font-size: 6vw;
     margin-bottom: 8vh;
   }
   
   .about__collection__text {
     text-align: center;
-    font-size: 3vw;
+    font-size: 4vw;
     margin-bottom: 8vh;
     margin-right: 3vw;
     text-transform: uppercase;

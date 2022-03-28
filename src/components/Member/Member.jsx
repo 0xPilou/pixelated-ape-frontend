@@ -8,19 +8,20 @@ function Member({ name, role, img, twitter }) {
             <a href={twitter} target="_blank" className="member__socials">
 
                 <Card className='member__card'>
-                    <CardHeader
-                        className='member__card__header'
-                        title={name}
-                        subheader={role}
+
+                    <CardMedia
+                        component="img"
+                        height="400"
+                        image={img}
+                        alt={name}
                     />
                     <CardContent>
-
-                        <CardMedia
-                            component="img"
-                            height="300"
-                            image={img}
-                            alt={name}
+                        <CardHeader
+                            className='member__card__header'
+                            title={name}
+                            subheader={role}
                         />
+
                     </CardContent>
 
                     <CardActions disableSpacing className='member__contact'>
