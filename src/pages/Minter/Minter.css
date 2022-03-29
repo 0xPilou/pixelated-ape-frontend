@@ -112,6 +112,12 @@
     outline: none;
 }
 
+.minter__etherscan {
+    margin-top: 7%;
+    color: var(--tertiary);
+    text-decoration: underline;
+}
+
 @media screen and (max-width:1000px) {
     .minter__grid__gif {
         width: 100%;

@@ -7,6 +7,8 @@ import APECOIN_LOGO from '../../images/logo/apecoin.png';
 import MinterLogic from '../../pages/Minter/MinterLogic';
 
 import { MuiTheme } from '../../helpers/MuiTheme';
+import CONFIG from '../../config.json'
+
 
 export function MintButton({ data, refetch }) {
     const {
@@ -111,6 +113,9 @@ export function MintButton({ data, refetch }) {
                         }
                     </Grid>
                 }
+                <a href={CONFIG.ETHERSCAN_URL} target="_blank" className="minter__etherscan">
+                    verify contract
+                </a>
             </Grid>
 
         </>
