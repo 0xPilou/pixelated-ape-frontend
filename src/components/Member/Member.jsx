@@ -6,9 +6,7 @@ function Member({ name, role, img, twitter }) {
     return (
         <Grid item xs={12} sm={8} md={5}>
             <a href={twitter} target="_blank" className="member__socials">
-
                 <Card className='member__card'>
-
                     <CardMedia
                         component="img"
                         height="400"
@@ -21,9 +19,7 @@ function Member({ name, role, img, twitter }) {
                             title={name}
                             subheader={role}
                         />
-
                     </CardContent>
-
                     <CardActions disableSpacing className='member__contact'>
                     </CardActions>
                 </Card>

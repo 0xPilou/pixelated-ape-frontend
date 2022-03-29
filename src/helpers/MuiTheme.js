@@ -19,18 +19,18 @@ export const MuiTheme = createTheme({
             root: {
                 background: '#b2d5ff',
                 borderRadius: "30px",
-                transition: "top .5s ease"
-
-
             }
         },
         MuiCardHeader: {
             title: {
                 color: '#122369',
-                fontFamily: 'HISKYFLIPPERHI'
+                fontFamily: 'HISKYFLIPPERHI',
+                fontSize: '2rem'
             },
             subheader: {
-                fontFamily: 'HISKYFLIPPERHI'
+                fontFamily: 'HISKYFLIPPERHI',
+                fontSize: '1.5rem'
+
             }
 
         },
