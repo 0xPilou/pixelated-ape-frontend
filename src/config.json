@@ -27,5 +27,22 @@
             "EXISTS": true,
             "URL": "https://looksrare.org/collections/0xa6e99A4ED7498b3cdDCBB61a6A607a4925Faa1B7"
         }
+    },
+    "TEAM" : {
+        "MEMBER1" : {
+            "NAME" : "0xPilou",
+            "ROLE" : "Developer",
+            "SOCIALS" : "https://twitter.com/0xPilou"
+        },
+        "MEMBER2" : {
+            "NAME" : "Benny Blanco",
+            "ROLE" : "Marketing",
+            "SOCIALS" : "https://twitter.com/BennyBlanco_OG"
+        },
+        "MEMBER3" : {
+            "NAME" : "Bapt Man",
+            "ROLE" : "Designer",
+            "SOCIALS" : "https://twitter.com/_bapt_man_"
+        }
     }
 }

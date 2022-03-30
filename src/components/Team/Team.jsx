@@ -3,14 +3,15 @@ import { Grid } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
 
 import Member from '../Member/Member';
+
 import './Team.css'
-
-import pilou from '../../images/team/pilou.png'
-import bennyblanco from '../../images/team/bennyblanco.png'
-import baptman from '../../images/team/baptman.png'
-
 import { MuiTheme } from '../../helpers/MuiTheme';
 
+import CONFIG from '../../config.json'
+
+import MEMBER1 from '../../images/team/pilou.png'
+import MEMBER2 from '../../images/team/bennyblanco.png'
+import MEMBER3 from '../../images/team/baptman.png'
 
 function Team() {
     return (
@@ -18,27 +19,25 @@ function Team() {
 
             <Grid container spacing={8} className="team__grid">
                 <Member
-                    name='0xPilou'
-                    role='Developer'
-                    img={pilou}
-                    twitter="https://twitter.com/0xPilou"
+                    name={CONFIG.TEAM.MEMBER1.NAME}
+                    role={CONFIG.TEAM.MEMBER1.ROLE}
+                    img={MEMBER1}
+                    twitter={CONFIG.TEAM.MEMBER1.SOCIALS}
+                />  
+                <Member
+                    name={CONFIG.TEAM.MEMBER2.NAME}
+                    role={CONFIG.TEAM.MEMBER2.ROLE}
+                    img={MEMBER2}
+                    twitter={CONFIG.TEAM.MEMBER2.SOCIALS}
                 />
                 <Member
-                    name='Benny Blanco'
-                    role='Marketing'
-                    img={bennyblanco}
-                    twitter="https://twitter.com/BennyBlanco_OG"
-                />
-                <Member
-                    name='Bapt Man'
-                    role='Designer'
-                    img={baptman}
-                    twitter="https://twitter.com/_bapt_man_"
+                    name={CONFIG.TEAM.MEMBER3.NAME}
+                    role={CONFIG.TEAM.MEMBER3.ROLE}
+                    img={MEMBER3}
+                    twitter={CONFIG.TEAM.MEMBER3.SOCIALS}
                 />
             </Grid>
         </ThemeProvider>
-
     )
 }
-
 export default Team
