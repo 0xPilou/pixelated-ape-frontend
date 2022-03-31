@@ -31,6 +31,10 @@ const Wallet = () => {
         window.ethereum.on('accountsChanged', accountChangeHandler);
     }
 
+    if (window.ethereum) {
+        window.ethereum.on('networkChanged', accountChangeHandler);
+    }
+
     return { connectWalletHandler };
 
 }
