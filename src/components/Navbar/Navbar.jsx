@@ -26,6 +26,7 @@ export function Navbar() {
     const { connectWalletHandler } = Wallet();
 
     let connectionStatus = localStorage.getItem('status');
+    let activeNetwork = localStorage.getItem('network');
     let activeAccount = localStorage.getItem('account');
 
     return (
@@ -87,16 +88,22 @@ export function Navbar() {
                         {!window.ethereum && <span>Install Metamask</span>}
                         {window.ethereum &&
                             <>
-                                {connectionStatus === "connected" &&
-                                    <span> ✔ {activeAccount.substring(0, 6)}...{activeAccount.slice(-4)} </span>
-                                }
-                                {(connectionStatus === null
-                                    || connectionStatus === "disconnected"
-                                    || connectionStatus === "")
-                                    &&
-                                    <span> Connect Wallet </span>
-                                }
-                            </>
+                            {(connectionStatus === null
+                                || connectionStatus === "disconnected"
+                                || connectionStatus === "")
+                                &&
+                                <span> Connect Wallet </span>
+                            }
+                            {connectionStatus === "connected" 
+                                && activeNetwork === "error" &&
+                                <span> ✖ Wrong Network </span>
+                            }
+                            {connectionStatus === "connected" 
+                                && activeNetwork !== "error" &&
+                                <span> ✔ {activeAccount.substring(0, 6)}...{activeAccount.slice(-4)} </span>
+                            }
+
+                        </>
                         }
                     </button>
                 </li>
