@@ -39,6 +39,5 @@ export const MuiTheme = createTheme({
                 borderRadius: "15px"
             }
         }
-
     }
 });

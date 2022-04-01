@@ -42,12 +42,6 @@ function About() {
         <h1 className='about__header'>ABOUT THE TEAM</h1>
       </Grid>
       <Team />
-
-
-
-
-
-
     </div >
   </>
 }
