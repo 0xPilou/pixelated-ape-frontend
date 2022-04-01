@@ -16,8 +16,11 @@ import './Minter.css'
 function Minter() {
 
   const { data, refetch } = useFetch();
+  const { switchNetwork } = Wallet();
 
   const connectionStatus = localStorage.getItem('status')
+  const activeNetwork = localStorage.getItem('network')
+
 
   return <>
     {/* <video autoPlay loop muted className='video'>
@@ -48,16 +51,37 @@ function Minter() {
         </Grid>
         <Grid className="minter__grid__action">
           <Grid>
-            <Grid container spacing={2} justifyContent="center" alignItems="center">
+          <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center">
               {(connectionStatus === null
                 || connectionStatus === "disconnected"
                 || connectionStatus === "") &&
                 <>
-                  <p className='minter__title'>Connect Wallet</p>
-                  <p className='minter__title'>To Mint</p>
+                  <Grid item>
+                    <p className='minter__warning'>Connect Wallet</p>
+                  </Grid>
+                  <Grid item>
+                    <p className='minter__warning'>To Mint</p>
+                  </Grid>
                 </>
               }
-              {connectionStatus === "connected" &&
+              {connectionStatus === "connected"
+                && activeNetwork === "error" &&
+                <>
+                  <Grid item>
+                    <p className='minter__warning'>Switch Network</p>
+                  </Grid>
+                  <Grid item>
+                    <p className='minter__warning'>To Mint</p>
+                  </Grid>
+                  <Grid item>
+                    <button className="minter__switch__btn" onClick={switchNetwork}>
+                      <span> Switch Network </span>
+                    </button>
+                  </Grid>
+                </>
+              }
+              {connectionStatus === "connected"
+                && activeNetwork !== "error" &&
                 <>
                   <MintButton data={data} refetch={refetch} />
                 </>

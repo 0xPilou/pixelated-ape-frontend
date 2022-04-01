@@ -87,6 +87,10 @@
         align-items: center;        
     }
 
+    .navbar__socials {
+        padding: 0 2.5vw 0 2.5vw;
+    }
+
     .navbar__links {
         flex-direction: column;
         justify-content: center;

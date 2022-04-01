@@ -23,7 +23,7 @@ export function Navbar() {
         setShowLinks(!showLinks);
     }
 
-    const { connectWalletHandler } = Wallet();
+    const { connectWallet } = Wallet();
 
     let connectionStatus = localStorage.getItem('status');
     let activeNetwork = localStorage.getItem('network');
@@ -84,7 +84,7 @@ export function Navbar() {
                     }
                 </li>
                 <li className="navbar__item slideInDown-4">
-                    <button className="navbar__wallet slideInDown-4" onClick={connectWalletHandler}>
+                    <button className="navbar__wallet slideInDown-4" onClick={connectWallet}>
                         {!window.ethereum && <span>Install Metamask</span>}
                         {window.ethereum &&
                             <>

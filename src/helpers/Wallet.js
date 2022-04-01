@@ -7,21 +7,30 @@ const Wallet = () => {
 
     const onboarding = new MetaMaskOnboarding();
 
-    const connectWalletHandler = () => {
+    const connectWallet = () => {
         if (window.ethereum) {
             window.ethereum.request({
                 method: 'eth_requestAccounts',
             })
                 .then(function (accounts) {
                     accountChangeHandler(accounts[0])
-                });
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            provider.getNetwork()
-                .then(function (network) {
-                    chainChangeHandler(network.chainId);
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    provider.getNetwork()
+                        .then(function (network) {
+                            chainChangeHandler(network.chainId);
+                        });
                 });
         } else {
             onboarding.startOnboarding();
+        }
+    }
+
+    const switchNetwork = () => {
+        if (window.ethereum) {
+            window.ethereum.request({
+                method: 'wallet_switchEthereumChain',
+                params: [{ chainId: CONFIG.CHAIN_ID }],
+            });
         }
     }
 
@@ -52,7 +61,7 @@ const Wallet = () => {
         window.ethereum.on('chainChanged', chainChangeHandler);
     }
 
-    return { connectWalletHandler };
+    return { connectWallet, switchNetwork };
 
 }
 
