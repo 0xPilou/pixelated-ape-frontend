@@ -1,0 +1,24 @@
+.gallery__header{
+    text-align: center;
+    font-size: 4vw;
+    margin-bottom: 7%;
+    text-transform: uppercase;
+}
+
+.gallery__warning {
+    text-align: center;
+    font-size: 2.5vw;
+    text-transform: uppercase;
+
+}
+
+.gallery__card__header {
+    text-align: center;
+}
+
+@media screen and (max-width:1000px) {
+    .gallery__header{
+        font-size: 8vw;
+        margin-bottom: 15%;
+    }
+}

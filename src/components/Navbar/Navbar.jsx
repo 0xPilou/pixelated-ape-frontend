@@ -77,33 +77,38 @@ export function Navbar() {
                     </li>
                 }
                 <li className="navbar__item slideInDown-3">
+                    <NavLink activeclassname="navbar__link__active" className="navbar__link" to="/gallery" onClick={handleShowLinks}>
+                        GALLERY
+                    </NavLink>
+                </li>
+                <li className="navbar__item slideInDown-4">
                     {String(activeAccount) === CONFIG.DEPLOYER_ADDRESS.toLowerCase() &&
                         <NavLink activeclassname="navbar__link__active" className="navbar__link" to="/admin" onClick={handleShowLinks}>
                             ADMIN
                         </NavLink>
                     }
                 </li>
-                <li className="navbar__item slideInDown-4">
-                    <button className="navbar__wallet slideInDown-4" onClick={connectWallet}>
+                <li className="navbar__item slideInDown-5">
+                    <button className="navbar__wallet" onClick={connectWallet}>
                         {!window.ethereum && <span>Install Metamask</span>}
                         {window.ethereum &&
                             <>
-                            {(connectionStatus === null
-                                || connectionStatus === "disconnected"
-                                || connectionStatus === "")
-                                &&
-                                <span> Connect Wallet </span>
-                            }
-                            {connectionStatus === "connected" 
-                                && activeNetwork === "error" &&
-                                <span> ✖ Wrong Network </span>
-                            }
-                            {connectionStatus === "connected" 
-                                && activeNetwork !== "error" &&
-                                <span> ✔ {activeAccount.substring(0, 6)}...{activeAccount.slice(-4)} </span>
-                            }
+                                {(connectionStatus === null
+                                    || connectionStatus === "disconnected"
+                                    || connectionStatus === "")
+                                    &&
+                                    <span> Connect Wallet </span>
+                                }
+                                {connectionStatus === "connected"
+                                    && activeNetwork === "error" &&
+                                    <span> ✖ Wrong Network </span>
+                                }
+                                {connectionStatus === "connected"
+                                    && activeNetwork !== "error" &&
+                                    <span> ✔ {activeAccount.substring(0, 6)}...{activeAccount.slice(-4)} </span>
+                                }
 
-                        </>
+                            </>
                         }
                     </button>
                 </li>

@@ -195,4 +195,12 @@
     .show-nav .slideInDown-3 {
         transition: all 1.2s ease-out;
     }
+    
+    .show-nav .slideInDown-4 {
+        transition: all 1.3s ease-out;
+    }
+
+    .show-nav .slideInDown-5 {
+        transition: all 1.4s ease-out;
+    }
 }
